@@ -1,54 +1,57 @@
 module.exports = function(sequelize, DataTypes){
-	var task = sequelize.define("User", {
+	var task = sequelize.define("Task", {
 		taskName:{
-			type:Sequelize.STRING,
+			type:DataTypes.STRING,
 			validate:{
 				notNull:true
 			}
 		},
 		taskDescription:{
-			type:Sequelize.TEXT
+			type:DataTypes.TEXT
 
 		},
 		taskLink:{
-			type:Sequelize.STRING
+			type:DataTypes.STRING
 	
 		},
 		taskDrawing:{
-			type:Sequelize.LONGBLOB
+			type:DataTypes.BLOB
 
 		},
 		taskCategory:{
-			type:Sequelize.STRING
+			type:DataTypes.STRING
 
 		},
 		taskComments:{
-			type:Sequelize.TEXT
+			type:DataTypes.TEXT
 
 		},
 		complete:{
-			type:Sequelize.BOOLEAN
+			type:DataTypes.BOOLEAN
 
 		},
 		dateCreated:{
-			type:Sequelize.DATE
+			type:DataTypes.DATE
 
 		},
 		dateDue:{
-			type:Sequelize.DATE
+			type:DataTypes.DATE
 
-		},
-		{
-			classMethods:{
-				associate:function(models){
-					task.belongsTo(models.user, {
-						foreignKey:{
-							allowNull: false;
-						}
-					});
-				}
-			}
 		}
-	});
+	}
+		// {
+		// 	classMethods:{
+		// 		associate:function(models){
+		// 			task.belongsTo(models.user, {
+		// 				foreignKey:{
+		// 					allowNull: false
+		// 				}
+		// 			});
+		// 		}
+		// 	}
+		// }
+	
+	);
 	return task;
 };
+
