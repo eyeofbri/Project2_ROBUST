@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html>
-	<head>Tic It Login </head>
-	<link rel="stylesheet" type="text/css" href="./css/style1.css">
+	<head>
+		<title>TIKIT LOGIN</title>
+		<link rel="stylesheet" type="text/css" href="./css/style1.css">
+	</head>
 
 	<body>
+		<div class="form-holder">
 
-		<h2>Login Form</h2>
+			<div class="imgcontainer">
+				<img src="./images/img.png" alt="Avatar" class="avatar">
+			</div>
 
-		<form action="/action_page.php">
-		  <div class="imgcontainer">
-		    <img src="./images/img.png" alt="Avatar" class="avatar">
-		  </div>
+			<h1><!-- title --></h1>
 
-		  <div class="container">
-		    <label><b>Username</b></label>
-		    <input type="text" placeholder="Enter Username" name="uname" required>
+			<form action="/action_page.php">
 
-		    <label><b>Password</b></label>
-		    <input type="password" placeholder="Enter Password" name="psw" required>
-		        
-		    <button type="submit">Login</button>
-		    <input type="checkbox" checked="checked"> Remember me
-		  </div>
+				<div class="container">
+					<label><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
 
-		  <div class="container" style="background-color:#f1f1f1">
-		    <button type="button" class="cancelbtn">Cancel</button>
-		    <span class="psw">Forgot <a href="#">password?</a></span>
-		  </div>
-		</form>
+					<label>
+						<b>Password</b>
+					</label>
 
+					<input type="password" placeholder="Enter Password" name="psw" required>
+					    
+					<button type="submit">Sign in</button>
+					<input type="checkbox" checked="checked"> Remember me
+
+					<a class="psw" href="#">Forgot password?</a>
+				</div>
+
+				
+			</form>
+		</div>
+
+		<div class="newUser-holder">
+			<div class="newUser">
+				<span>New User?</span>
+				<a class="" href="#">Create an Account.</a>
+			</div>
+		</div>
 	</body>
 </html>

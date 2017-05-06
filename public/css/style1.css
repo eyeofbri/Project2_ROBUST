@@ -1,14 +1,48 @@
+body{
+    background-color: #333;
+    margin:0px;
+    font-family: sans-serif;
+}
+
+
+a{
+    text-decoration: none;
+    color: rgb(59,153,252);
+}
+
+
+h1{
+    color:#fff;
+    text-align: center;
+    width:100%;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+h1:before{
+    content: "Sign in to TIKIT";
+}
+
 form {
-    border: 3px solid #f1f1f1;
+    border: 5px solid #000;
+    background-color: #fff;
+    max-width: 550px;
+    margin: 20px auto;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 20px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: 10px;
+}
+
+input[type=text]:hover, input[type=password]:hover {
+    background-color:#ccc;
 }
 
 button {
@@ -19,10 +53,22 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 10px;
 }
 
 button:hover {
     opacity: 0.8;
+}
+
+input[type=checkbox]{
+    margin-top: 20px;
+}
+
+.form-holder{
+    width: calc(100% - 40px);
+    margin-right: 20px;
+    margin-left: 20px;
+   
 }
 
 .cancelbtn {
@@ -38,16 +84,22 @@ button:hover {
 
 img.avatar {
     width: 40%;
+    max-width: 200px;
     border-radius: 50%;
 }
 
 .container {
     padding: 16px;
 }
+.newUser{
+    padding:16px;
+    background-color:#f1f1f1;
+    text-align: center;
+}
 
-span.psw {
+.psw {
+    margin-top: 15px;
     float: right;
-    padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -59,4 +111,39 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+}
+
+.newUser-holder{
+    width:100%;
+    max-width: 550px;
+    margin: 20px auto 40px auto;
+}
+.newUser{
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #fff;
+    font-size: large;
+    font-weight: bolder;
+}
+.newUser a{
+    color: rgba(200,200,200,0.8);
+    letter-spacing: 1px;
+}
+.newUser a:hover{
+    text-decoration: underline;
+}
+.newUser span:after{
+    content: "\00a0 ";
+}
+@media screen and (max-width: 500px) {
+    .newUser{
+        display: flex;
+        flex-direction: column;
+        font-size: x-large;
+    }
+    .newUser span:after{
+    content: "";
+}
 }

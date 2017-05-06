@@ -525,11 +525,13 @@ aside h1, aside h2, aside h3, aside h4{
 .newTask-form-holder h3:nth-of-type(7):before{
 	content: "Due Date";
 }
-
 .newTask-form input,
 .newTask-form select{
 	margin-left: 20px;
 	margin-bottom: 40px;
+}
+.modules-loggedOut .newTask-form-holder{
+	display: none;
 }
 
 
