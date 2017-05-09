@@ -5,6 +5,10 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script src="js/sketch.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/tikitStyle.css">
 	<script src="js/tikit_frontEnd.js"></script>
 
@@ -24,7 +28,7 @@
 	<div class="modules-loggedIn">
 
 		<!--THE SETTINGS MODULE -->
-		<aside class="settings-holder">
+		<aside class="settings-holder hide">
 
 			<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
 
@@ -147,7 +151,7 @@
 
 		<!-- NEW TASK CREATOR-->
 
-		<aside class="newTask-holder hide">
+		<aside class="newTask-holder">
 
 			<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
 
@@ -165,7 +169,7 @@
 					
 					<!-- task text input -->
 					<h3></h3>
-					<input class="taskText" type="text" name="taskText" placeholder="Text for a new task">
+					<textarea name="newTaskText" class="input" rows="5" placeholder="Text for a new task" required></textarea>
 
 					<!-- assigned to user select -->
 					<h3></h3>
@@ -175,7 +179,6 @@
 						<option value="(handlebars)">other user1</option>
 						<option value="(handlebars)">other user2</option>
 					</select>
-
 
 					<!-- category select -->
 					<h3></h3>
@@ -188,29 +191,55 @@
 
 					<!-- description input -->
 					<h3></h3>
-					<input class="taskText" type="text" name="taskDescription" placeholder="Task quick description">
+					<textarea name="taskDescription" class="input" rows="5" placeholder="Task Quick Description"></textarea>
 
 					<!-- Link Input -->
 					<h3></h3>
-					<input class="taskText" type="text" name="taskLink" placeholder="Task link attachment">
+					<input class="newTaskText" type="text" name="taskLink" placeholder="Task link attachment">
 
 
 					<!-- image Input -->
 					<h3></h3>
-					<input type="file" name="taskPic" accept="image/*">
 
-				<!-- Drawing button
-					image link 
-					image choose file
-					drawing input
- -->
+					<div class="newTask-image-container">
+						<div class="imgNav">
+							<button type="button" onclick="img_Btn('image_import', this)"></button>
+							<button type="button" onclick="img_Btn('draw_import', this)"></button>
+						</div>
+
+						<div class="imgImport-holder hide" id="imgImport">
+
+							<h6></h6>
+							<input id="from-url" class="image-url" placeholder="url" type="text" />
+
+							<!-- <h6></h6>
+							<input id="from-local" type="file" name="taskPic" accept="image/*"> -->
+						</div>
+
+						<div class="imgDraw-holder hide" id="drawImport">
+
+							<h6></h6>
+							<div id="drawingCanvas"></div>
+						</div>
+
+						<!-- upload image button -->
+						<!-- uploads images from ... -->
+						<!-- above this to below this -->
+						<div class="uploadImg-btn-holder hide" id="uploadImg-btn-holder">
+							<button type="button" id="uploadImg-btn" onclick="img_Btn('upload_image')"></button>
+						</div>
+
+						<!-- uploaded images go here -->
+						<div id="imgUploaded-holder" class="imgUploaded-holder hide"></div>
+					</div>
+
 					<!-- due date input -->
 					<h3></h3>
 					<input class="taskText" class="due" type="date" value="2011-01-13"/>
 
 
 					<h2><!-- title (css)--></h2>
-					<button type="" class="fa fa-plus-circle fa-3x"></button>
+					<button type="submit" id="addTask"></button>
 				</form>
 
 

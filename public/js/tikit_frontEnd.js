@@ -15,7 +15,6 @@ window.onload = function() {
 
 
 
-
 function Initialize() {
 
 	if(debugging)
@@ -29,7 +28,7 @@ function Initialize() {
 	//NAV & NAV MODULES
 
 
-	//...open modules - with li a links
+	//...add open modules buttons - with li a links
 	var t = document.querySelector(".topnav");
 	var tl = t.children;
 	for (var tl_i = 0; tl_i < tl.length; tl_i++) {
@@ -53,7 +52,7 @@ function Initialize() {
 		});
 	}
 
-	//...close modules - with X button
+	//...add close modules buttons - with X button
 	var x = document.querySelectorAll(".nav-close");
 	for (x_i = 0; x_i < x.length; x_i++) {
 		x[x_i].addEventListener('click', function(event) {
@@ -82,7 +81,7 @@ function Initialize() {
 		});
 	}
 
-
+	drawingLogic("load");
 
 	if(debugging)
 	{console.log("frontEnd INITIALIZED!!!");}
@@ -174,3 +173,211 @@ function LogTest(argument) {
 	if(argument){maybe = ": "+ argument; }
 	console.log("TEST_LOG"+ maybe);
 }
+
+
+// ////////////////
+// DRAWING FUNCTIONS
+// ////////////////
+function drawingLogic(whatToDo) {
+	if(whatToDo == "load"){		
+		var canvasDiv = $('#drawingCanvas');
+    	canvasDiv.css({}).append('<div id="markerTools"></div><div id="markerTools_2"></div><canvas id="drawing" height=300 width=653></canvas><div id="imgTools"></div>');
+    	
+    	//image tool - clear drawing
+    	$('#imgTools').append("<a href='#drawing' id='resetDrawing'>Clear</a>");
+		//and its actual function
+		$("#resetDrawing").click(function(){
+			drawingLogic("clear canvas");
+		});
+
+    	//image tool - save drawing
+    	$('#imgTools').append("<a href='#drawing' data-download='png' id='downloadDrawing' style='float: right;''>Download</a>");
+
+    	// draw tool - color pickers
+    	$.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
+	      $('#markerTools').append("<a href='#drawing' data-color='" + this + "' style='width: 100%; height: 100%; background: " + this + ";'></a> ");
+	    });
+
+    	//draw tool - size pickers
+	    $.each([3, 5, 10, 15], function() {
+      		$('#markerTools_2').append("<a href='#drawing' data-size='" + this + "' style='flex: 1; background: #ccc'>" + this + "</a> ");
+    	});
+
+    	$('#drawing').sketch();
+	}
+	if(whatToDo == "clear canvas"){
+		var canvas = document.getElementById('drawing');  
+		canvas.getContext('2d').clearRect(0,0,1920,2000);
+		$('#drawing').sketch('actions',[]);
+	}
+}
+
+function img_Btn(toggleName, el) {
+
+	var status;
+	if(toggleName == "image_import" || toggleName == "draw_import"){
+		if(toggleName == "image_import"){
+			status = document.getElementById('imgImport').className.split(" ")[1]; 
+
+			//reverse the status
+			if(status == "hide"){ status = "show";}
+			else{ status = "hide";}
+
+			if(status == "show"){
+				//hide the other module
+				document.getElementById('drawImport').className = "imgDraw-holder hide";
+
+				//hide the uploaded holder
+				document.getElementById('imgUploaded-holder').className = "hide";
+
+				var btn_parent = el.parentNode;
+				var btn = btn_parent.children;
+				for (var btn_i = 0; btn_i < btn.length; btn_i++) {
+					btn[btn_i].className = "";
+				}
+
+				el.className = "active";
+			}else{
+				el.className = "";
+			}
+
+			document.getElementById('imgImport').className = "imgImport-holder" + " "+ status;
+		}
+
+		if(toggleName == "draw_import"){
+			status = document.getElementById('drawImport').className.split(" ")[1]; 
+
+			//reverse the status
+			if(status == "hide"){ status = "show";}
+			else{ status = "hide";}
+
+			if(status == "show"){
+				//hide the other module
+				document.getElementById('imgImport').className = "imgImport-holder hide";
+
+				//hide the uploaded holder
+				document.getElementById('imgUploaded-holder').className = "hide";
+
+				var btn_parent = el.parentNode;
+				var btn = btn_parent.children;
+				for (var btn_i = 0; btn_i < btn.length; btn_i++) {
+					btn[btn_i].className = "";
+				}
+
+				el.className = "active";
+			}else{
+				el.className = "";
+			}
+			
+			document.getElementById('drawImport').className = "imgDraw-holder" + " "+ status;
+		}
+
+		//upload button display check
+		if(status == "show"){
+			document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder";
+		}else{
+			document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder hide";
+		}
+
+		//if there is already an uploaded image
+		//it was probably hidden before
+		//...lets show it
+
+		if(debugging)
+		console.log(toggleName +" "+ status);
+	}
+
+	if(toggleName == "upload_image"){
+
+		//check if drawing or import is being show currently
+		var import_h = document.getElementById('imgImport').className;
+		var import_d = document.getElementById('drawImport').className;
+
+
+		if(import_h == "imgImport-holder show"){
+
+
+
+			var img = $('<img>');
+
+			var url = $( "#from-url" ).val().trim();
+
+			var src;
+			if(url !=""){ src = url; }
+
+		
+			if(src != ""){
+
+				$('#imgUploaded-holder').html("");
+				img.attr('src', src);
+				img.appendTo('#imgUploaded-holder');
+
+				//hide IMG imports
+				document.getElementById('imgImport').className = "imgImport-holder hide";
+
+				// show uploaded image
+				document.getElementById('imgUploaded-holder').className = "show";
+
+				//hide upload button
+				document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder hide";
+			}
+
+			//if local 
+			//DID NOT WORK
+
+
+			// var local = $( "#from-local" ).val().trim();
+			// if(local !=""){
+			// 	//feed image through a canvas to get a copy in out js
+			// 	var temp_canvas = $('<canvas>');
+			// 	var ctx = temp_canvas.get(0).getContext("2d");
+   //  			ctx.drawImage(img, 0, 0);
+
+   //  			var canvas = document.getElementById("drawing");
+			// 	var img    = canvas.toDataURL("image/png");
+
+			// 	$('#imgUploaded-holder').html("");
+			// 	$('#imgUploaded-holder').append('<img src="'+img+'"/>');
+
+			// 	// show uploaded image
+			// 	document.getElementById('imgUploaded-holder').className = "show";
+
+			// 	//hide upload button
+			// 	document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder hide";
+			// }
+
+		}
+
+		if(import_d == "imgDraw-holder show"){
+			//if draw modules being shown
+
+			console.log("ok");
+			//if its data-used is true (meaining someone clicked the canvas)
+			
+
+			var canvas = document.getElementById("drawing");
+			var img    = canvas.toDataURL("image/png");
+
+			$('#imgUploaded-holder').html("");
+			$('#imgUploaded-holder').append('<img src="'+img+'"/>');
+
+			
+			//hide canvas
+			document.getElementById('drawImport').className = "imgDraw-holder hide";
+
+			//clear canvas
+			drawingLogic("clear canvas");
+
+			// show uploaded image
+			document.getElementById('imgUploaded-holder').className = "show";
+
+			//hide upload button
+			document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder hide";
+		
+		}
+
+		
+	}
+
+}
+

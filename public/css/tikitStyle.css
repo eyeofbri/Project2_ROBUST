@@ -14,7 +14,7 @@ body{
 }
 
 .hide{
-	/*display: none;*/
+	display: none;
 	overflow: hidden;
 	width:0px;
 	height: 0px;
@@ -494,21 +494,29 @@ aside h1, aside h2, aside h3, aside h4{
 }
 .newTask-form-holder{
 	background-color: #fff;
+	padding-left: 20px;
+	padding-right: 25px;
+}
+.newTask-form-holder h3{
+	padding-left: 0px;
+	padding-top: 20px;
 }
 .newTask-form-holder h5{
 	margin-top:0px;
-	padding: 20px;
+	padding-top:20px;
 	padding-bottom: 0px;
+	color: rgba(0,0,0,0.5);
 }
 
 .newTask-form-holder h5:before{
+	text-transform: capitalize;
 	content: "Please Fill in the form below to add a new task";
 }
 .newTask-form-holder h3:before{
 	content: "Main Text";
 }
 .newTask-form-holder h3:nth-of-type(2):before{
-	content: "Assign To A User";
+	content: "Assign to a User";
 }
 .newTask-form-holder h3:nth-of-type(3):before{
 	content: "Categories";
@@ -520,18 +528,207 @@ aside h1, aside h2, aside h3, aside h4{
 	content: "Reference Link";
 }
 .newTask-form-holder h3:nth-of-type(6):before{
-	content: "Drawing Or Image Input";
+	content: "Drawing or File Image";
 }
 .newTask-form-holder h3:nth-of-type(7):before{
 	content: "Due Date";
 }
 .newTask-form input,
 .newTask-form select{
-	margin-left: 20px;
 	margin-bottom: 40px;
+	width: 100%;
+	font-size: larger;
+	border-radius: 10px;
 }
 .modules-loggedOut .newTask-form-holder{
 	display: none;
+}
+
+.newTask-form textarea{
+	width: calc(100% - 20px);
+	border-radius: 10px;
+	padding:10px;
+	font-size: larger;
+	background-color: rgba(0,0,0,0.05);
+}
+
+.newTask-form button{
+	width: 100%;
+	font-size: larger;
+	background-color: rgba(0,0,0,0.5);
+	margin-bottom: 40px;
+    height: 100%;
+    border-radius: 20px;
+    font-size: 3em;
+}
+.newTask-form button:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+#addTask:after{
+	content: "Add To Tasks";
+	font-family: sans-serif;
+	text-transform: uppercase;
+	color:rgba(0,0,0,0.5);
+}
+.newTask-form button:hover:after{
+	color:#fff !important;
+	font-weight: lighter;
+}
+
+
+/*new task Image*/
+.newTask-image-container{
+	width:100%;
+	background-color: #ccc;
+	padding-bottom: 0px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.imgNav{
+	display: flex;
+}
+.imgNav button:nth-of-type(1):after{
+	content:"Import";
+}
+.imgNav button:nth-of-type(2):after{
+	content:"Draw";
+}
+.imgNav button{
+	border-radius: 0px;
+	font-size: xx-large;
+	color:rgba(0,0,0,0.75);
+	margin-bottom: 0px;
+	border:1px solid #333;
+}
+.imgNav button:hover{
+	color:#fff !important;
+	font-weight: light;
+}
+
+.imgNav button.active{
+	background-color: #ccc;
+	border: 0px;
+}
+/*a:hover:not(.logo)*/
+
+.imgImport-holder, .imgDraw-holder{
+	height: 100%;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 30px;
+}
+.imgImport-holder h6:nth-of-type(1):after{
+	content: "From Link";
+	font-size: large;
+}
+.imgImport-holder h6:nth-of-type(2):after{
+	content: "From File";
+	font-size: large;
+}
+.imgDraw-holder h6:nth-of-type(1):after{
+	content: "Click and Drag the Mouse or Touch the Canvas to Draw";
+	font-size: medium;
+}
+
+/*the canvas For drawings*/
+#drawingCanvas{
+	width: 100%;
+	position: relative;
+	cursor:crosshair;
+	border-radius: 5px;
+}
+#drawing{
+	border:1px solid #000;
+	width: calc(100% - 20px);
+	border-radius: 5px;
+	margin-left: 10px;
+	background-color: #fff;
+	background-image: url(../images/seamless_paper_texture.png);
+}
+#markerTools, #markerTools_2{
+	width: calc(100% - 20px);
+	margin-left: 10px;
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+}
+#markerTools a, #markerTools_2 a{
+	text-align: center;
+	text-decoration: none;
+	flex:1;
+	color:#fff;
+	border:1px solid #000;
+	font-size: larger;
+	font-weight: lighter;
+	border-radius: 10px;
+}
+#markerTools a{
+	box-shadow:inset 0px 0px 20px #fff;
+}
+#markerTools a:hover{
+	opacity: 0.8;
+}
+#markerTools_2 a{
+	background-color: #333 !important;
+	padding-top: 2px;
+	margin:10px 0;
+}
+
+#resetDrawing{
+	position: absolute;
+	left:5px;
+	margin-left: 10px;
+}
+#downloadDrawing{
+	position: absolute;
+	right:5px;
+	margin-right: 10px;
+}
+
+
+
+.imgImport-holder input{
+	width: calc(100% - 20px);
+	margin:0;
+}
+.uploadImg-btn-holder{
+	display: flex;
+	align-content:center;
+	justify-content: center;
+	padding-bottom: 0px;
+}
+#uploadImg-btn{
+	width: calc(80% - 20px);
+	margin-bottom: 20px;
+}
+#uploadImg-btn:after{
+	content: "Upload Image";
+	color:rgba(0,0,0,0.5);
+}
+
+
+
+#imgUploaded-holder:not(.hide){
+	overflow: hidden;
+	width: 100%;
+	height: 400px;
+	max-height: 400px;
+	background-color: #fff;
+	background-image: url(../images/seamless_paper_texture.png);
+	border:1px solid #333;
+	display: flex;
+	align-content:center;
+	justify-content: center;
+	
+}
+#imgUploaded-holder img{
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+    max-height:400px;
+    /*height: auto;
+	max-width: 100%;*/
 }
 
 
