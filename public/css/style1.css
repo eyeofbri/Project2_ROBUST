@@ -17,9 +17,10 @@ h1{
     width:100%;
     font-weight: lighter;
     letter-spacing: 1px;
+    font-size: larger;
 }
 h1:before{
-    content: "Sign in to TIKIT";
+    content: "Current User Log In";
 }
 
 form {
@@ -39,6 +40,7 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 10px;
+    font-size: 18px;
 }
 
 input[type=text]:hover, input[type=password]:hover {
@@ -47,13 +49,22 @@ input[type=text]:hover, input[type=password]:hover {
 
 button {
     background-color: #4CAF50;
-    color: white;
+    color: black;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
     border-radius: 10px;
+    font-size: x-large;
+    text-transform: uppercase;
+    -webkit-animation: glowing 31.4s linear infinite;
+    -moz-animation: glowing 31.4s linear infinite;
+    -ms-animation: glowing 31.4s linear infinite;
+    -o-animation: glowing 31.4s linear infinite;
+    animation: glowing 31.4s linear infinite;
+    /*text-shadow: -1px -1px 3px #fff, 0px 0px 3px #fff;*/
+    border: 1px solid #ccc;
 }
 
 button:hover {
@@ -80,12 +91,16 @@ input[type=checkbox]{
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
+    -webkit-animation: hovering 3.14s linear infinite;
+    -moz-animation: hovering 3.14s linear infinite;
+    -ms-animation: hovering 3.14s linear infinite;
+    -o-animation: hovering 3.14s linear infinite;
+    animation: hovering 3.14s linear infinite;
 }
 
 img.avatar {
     width: 40%;
     max-width: 200px;
-    border-radius: 50%;
 }
 
 .container {
@@ -144,6 +159,32 @@ img.avatar {
         font-size: x-large;
     }
     .newUser span:after{
-    content: "";
+        content: "";
+    }
 }
+
+@keyframes hovering {
+    80% {
+        transform: translateY(0%) scaleY(1.05) scaleX(1);
+    }
+    90% {
+        transform: translateY(0%) scaleY(0.95) scaleX(1);
+    }
+    100% {
+        transform: translateY(0%) scaleY(1) scaleX(1);
+    }
+}
+
+@keyframes glowing {
+    0%{ background-color: rgb(202, 28, 28); }
+    10%{ background-color: rgb(202, 202, 28); }
+    20%{ background-color:  rgb(71, 202, 28); }
+    30%{ background-color:  rgb(28, 202, 71); }
+    40%{ background-color: rgb(28, 202, 158); }
+    50%{ background-color:  rgb(28, 202, 202); }
+    60%{ background-color: rgb(28, 71, 202)); }
+    70%{ background-color: rgb(71, 28, 202); }
+    80%{ background-color:  rgb(158, 28, 202); }
+    90%{ background-color: rgb(202, 28, 158); }
+    100%{ background-color: rgb(202, 28, 28); }
 }
