@@ -31,18 +31,15 @@ module.exports = function(app){
 	    });
   	});
 
-		app.post("/signup", function(req, res){
-		    console.log(req.body);
-		    db.User.create({
-					userName:req.body.name,
-					userEmail:req.body.email,
-					userPassword:req.body.password
-				}).then(function(dbUser){
-		      console.log(dbUser);
-				res.render("task")
-		    });
-	  	});
-
-
-
+	app.post("/signup", function(req, res){
+	    console.log(req.body);
+	    db.User.create({
+				userName:req.body.name,
+				userEmail:req.body.email,
+				userPassword:req.body.password
+			}).then(function(dbUser){
+	      console.log(dbUser);
+			res.render("task")
+	    });
+  	});
 };

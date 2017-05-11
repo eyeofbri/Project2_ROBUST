@@ -1,44 +1,48 @@
 module.exports = function(sequelize, DataTypes){
-	var Task = sequelize.define("Task", {
-		taskName:{
+	var task = sequelize.define("Task", {
+		task:{
 			type:DataTypes.STRING
+
 		},
-		taskDescription:{
+		description:{
 			type:DataTypes.TEXT
-
-		},
-		taskLink:{
-			type:DataTypes.STRING
-	
-		},
-		taskDrawing:{
-			type:DataTypes.BLOB
-
-		},
-		taskCategory:{
-			type:DataTypes.STRING
 
 		},
 		complete:{
 			type:DataTypes.BOOLEAN
 
 		},
-		dateCreated:{
+		created_by:{
+			type:DataTypes.STRING
+			
+		},
+		assigned_to:{
+			type:DataTypes.STRING
+
+		},
+		date_created:{
 			type:DataTypes.DATE
 
 		},
-		dateDue:{
+		date_due:{
 			type:DataTypes.DATE
 
 		},
-		createdBy:{
+		category:{
 			type:DataTypes.STRING
+
 		},
-		assignedTo:{
+		drawing:{
+			type:DataTypes.BLOB
+
+		},
+		link:{
 			type:DataTypes.STRING
+	
 		}
 	}
+	, { timestamps: false }
 	);
-	return Task;
+	return task;
 };
 
