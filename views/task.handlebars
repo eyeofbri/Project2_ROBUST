@@ -1,120 +1,94 @@
 <h1>This is the Task Page</h1>
 
-<section>
-    <article>
-      <form class="" action="/addTask" method="post">
-        <div class="task-leftSide">
 
-          <div class="task-Main">
+<div class="modules-loggedIn">
 
-            <div class="completeBtn-holder">
-              <button class="completeBtn">
-  							<span class="fa fa-check fa-2x" aria-hidden="true">Complete</span>
-  						</button>
+<aside class="newTask-holder">
+
+      <button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
+
+      <h1><!-- title (css)--></h1>
+
+      <!-- "PLEASE LOG IN" alert (css)-->
+      <h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
+
+
+      <div class="newTask-form-holder">
+
+        <form class="newTask-form" method="post" action="/addTask">
+
+          <h5><!-- sub-title (css) --></h5>
+
+          <!-- task text input -->
+          <h3></h3>
+          <textarea name="taskName" class="input" rows="5" placeholder="Text for a new task" required></textarea>
+
+          <!-- assigned to user select -->
+          <h3></h3>
+          <input type="text" name="assigned_to" placeholder="Type a UserName Here">
+
+
+          <!-- category select -->
+          <h3></h3>
+          <input type="text" name="taskCategory" placeholder="Task Category">
+
+
+          <!-- description input -->
+          <h3></h3>
+          <input type="text" name="taskDescription" placeholder="Task Quick Description">
+
+          <!-- Link Input -->
+          <h3></h3>
+          <input class="newTaskText" type="text" name="taskLink" placeholder="Task link attachment">
+
+
+          <!-- image Input -->
+          <h3></h3>
+
+          <div class="newTask-image-container">
+            <div class="imgNav">
+              <button type="button" onclick="img_Btn('image_import', this)"></button>
+              <button type="button" onclick="img_Btn('draw_import', this)"></button>
             </div>
 
-            <div class="taskText-holder">
-              <div class="taskText">
-                <label for="taskName">Task Name</label>
-                <input type="text" name="taskName">
-              </div>
+            <div class="imgImport-holder hide" id="imgImport">
+
+              <h6></h6>
+              <input id="from-url" class="image-url" placeholder="url" type="text" />
+
+              <!-- <h6></h6>
+              <input id="from-local" type="file" name="taskPic" accept="image/*"> -->
             </div>
 
+            <div class="imgDraw-holder hide" id="drawImport">
+
+              <h6></h6>
+              <div id="drawingCanvas"></div>
+            </div>
+
+            <!-- upload image button -->
+            <!-- uploads images from ... -->
+            <!-- above this to below this -->
+            <div class="uploadImg-btn-holder hide" id="uploadImg-btn-holder">
+              <button type="button" id="uploadImg-btn" onclick="img_Btn('upload_image')"></button>
+            </div>
+
+            <!-- uploaded images go here -->
+            <div id="imgUploaded-holder" class="imgUploaded-holder hide"></div>
           </div>
 
-          <div class="assignedTo-CreatedBy">
-  					<div class="assignedTo">
-              <label for="assigned_to">Assigned To</label>
-              <input type="text" name="assigned_to" value="">
-            </div>
-  					<div class="createdBy">
-              <label for="created_by">Created By</label>
+          <!-- due date input -->
+          <h3></h3>
+          <input class="taskText" class="due" type="date"/>
 
-            </div>
-  				</div>
 
-          <div class="details-holder-closed">
+          <h2><!-- title (css)--></h2>
+          <button type="submit" id="addTask"></button>
+        </form>
 
-  					<button class="detailsToggle-btn" onclick="UI_Btn(this)"></button>
 
-  					<div class="category-holder">
-              <label for="taskCategory">Category</label>
-              <input type="text" name="taskCategory" value="taskCategory">
-            </div>
+      </div>
 
-  					<div class="task-description">
-              <label for="">Task Description</label>
-              <input type="text" name="taskDescription" value="taskDescription">
-            </div>
+    </aside>
 
-  					<div class="task-link-holder">
-  						<a class="task-link" target="_blank" href="{{link}}">{{link}}</a>
-              <label for="link">Task Link</label>
-              <input type="url" name="link" value="link">
-  					</div>
-
-  					<div class="taskDrawing-SectionContainer">
-  						<div class="drawingImg-holder">
-  							<button class="drawBtn-closed" onclick="UI_Btn(this,'draw')">
-  								<img class="drawingImg" src="testDrawing.jpg">
-  							</button>
-  						</div>
-  					</div>
-
-  				</div>
-
-          <div class="dates-holder">
-            <div class="date-listed">
-              <div class="date">
-                <label for="date_created">Date Created</label>
-                <input type="date" name="date_created" value="date_created">
-              </div>
-            </div>
-
-            <div class="date-due">
-              <div class="date">
-                <label for="date_due">Date Due</label>
-                <input type="date" name="date_due" value="date_due">
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </form>
-
-      <div class="task-rightSide-closed">
-  			<div class="comments-SectionContainer">
-
-  				<button class="comments-toggle-btn-OUTER" data-commentNumber="7" onclick="UI_Btn(this,'outer')">
-  					<span class="fa fa-comment fa-2x" aria-hidden="true"></span>
-  				</button>
-
-  				<div class="comments-holder">
-  					<button class="comments-toggle-btn-INNER fa fa-comment fa-1x"
-  					data-commentNumber="7" onclick="UI_Btn(this,'inner')"></button>
-
-  					<div class="comments-list">
-  						{{#each Comments}}
-                <pre>{{this.taskComments}}</pre>
-              {{/each}}
-  					</div>
-
-  					<div class="comment-form-holder">
-  						<form class="comment-form" id="" action="/newComment" method="POST">
-  							<input class="new-comment" placeholder="message" name="taskComments" type="text" />
-  							<button type="submit" class="fa fa-plus-circle fa-3x"></button>
-  						</form>
-  					</div>
-
-  				</div>
-
-  			</div>
-
-  			<div class="edit-delete-btn-holder">
-  				<button class="edit-task fa fa-pencil-square fa-1x"></button>
-  				<button class="delete-task fa fa-trash fa-1x"></button>
-  			</div>
-  		<!-- end of the right-side of a task -->
-  		</div>
-    </article>
-</section>
+</div>

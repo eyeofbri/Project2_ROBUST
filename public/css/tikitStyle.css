@@ -490,7 +490,7 @@ aside h1, aside h2, aside h3, aside h4{
 
 /*NEW TASK*/
 .newTask-holder h1:before{
-	content: "New Task";
+	content: "Create A New Task";
 }
 .newTask-form-holder{
 	background-color: #fff;
@@ -1675,7 +1675,7 @@ article:nth-child(n+2){
 /*////////*/
 .splash-holder{
 	max-width: 900px;	
-	background-color: #fff;
+	/*background-color: #fff;*/
 	margin-top: 20px;
 	margin-right: auto;
 	margin-left: auto;
@@ -1687,23 +1687,26 @@ ul.splash {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
 }
 
 ul.splash li {float: left;}
 
 ul.splash li a {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 24px 16px;
     text-decoration: none;
 }
 
-ul.splash li a:hover:not(.active) {background-color: #111;}
+ul.splash li a:hover:not(.active) {
+	background-color: #fff;
+	color: #333;
+	border-radius: 10px;
+}
 
 ul.splash li a.active {
-	background-image: url("../images/logo_small-white.png"); 
+	background-image: url("../images/logo_small-black.png"); 
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center center;
@@ -1715,8 +1718,59 @@ ul.splash li a.active:before{
 
 ul.splash li.right {float: right;}
 
+.splash-mid{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+	position: relative;
+}
+
+.splash-mid .form-holder{
+	flex: .5;
+}
+.about-holder{
+	flex: .5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about{
+	flex: 1;
+	font-family: sans-serif;
+	font-size: xx-large;
+	padding: 0 20px;
+}
+
+.underSplash{
+	z-index: -1;
+	position: fixed;
+	top: -100px;
+	left:-100px;
+	border-radius: 20px;
+	width: 200vw;
+	height: 200vh;
+	background-color: #ccc;
+}
+
 @media screen and (max-width: 600px){
     ul.splash li.right, 
     ul.splash li {float: none;}
     ul.splash li a.active {height: 80px;}
+
+	ul.splash li a:not(.active) {
+		border-top: 1px solid rgba(0,0,0,0.1);
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+    ul.splash li a:hover:not(.active) {
+		border-radius: 0px;
+	}
+
+    .splash-mid .form-holder,
+    .about-holder{ flex: 1;}
+
+    .splash-mid{
+    	margin-top: 20px;
+    	flex-direction: column;
+    }
 }

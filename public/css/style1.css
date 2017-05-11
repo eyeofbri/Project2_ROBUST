@@ -14,7 +14,7 @@
     content: "New User Sign Up Form";
 }
 
-form {
+.form-holder form {
     border: 5px solid #000;
     background-color: #fff;
     max-width: 550px;
