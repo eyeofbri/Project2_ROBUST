@@ -1,8 +1,27 @@
-<h1>Welcome to TIKIT</h1>
-<div>
-  <a href="login">Login</a>
-</div>
 
-<div>
-  <a href="signup">Signup</a>
+<div class="splash-holder">
+	<ul class="splash">
+	  <li><a class="active" href="#home"></a></li>
+	  <li class="right"><a href="#about">About</a></li>
+	  <li class="right"><a href="/login">Login</a></li>
+	  <li class="right"><a href="/signup">SignUp</a></li>
+	</ul>
+
+
+	<div class="form-holder">
+	  
+	  <form action="/signup" method="POST">
+	      <div class="container">
+	        <label><b>Name</b></label>
+	        <input type="text" placeholder="Enter Name" name="name" required>
+	        <label><b>Email</b></label>
+	        <input type="text" placeholder="Enter Email" name="email" required>
+	        <label><b>Password</b></label>
+	        <input type="password" placeholder="Enter Password" name="password" required>
+	        <button type="submit">Sign Up</button>
+	      </div>
+	  </form>
+
+	</div>
+
 </div>
