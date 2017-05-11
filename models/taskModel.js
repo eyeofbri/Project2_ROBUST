@@ -1,10 +1,7 @@
 module.exports = function(sequelize, DataTypes){
-	var task = sequelize.define("Task", {
+	var Task = sequelize.define("Task", {
 		taskName:{
-			type:DataTypes.STRING,
-			validate:{
-				notNull:true
-			}
+			type:DataTypes.STRING
 		},
 		taskDescription:{
 			type:DataTypes.TEXT
@@ -22,10 +19,6 @@ module.exports = function(sequelize, DataTypes){
 			type:DataTypes.STRING
 
 		},
-		taskComments:{
-			type:DataTypes.TEXT
-
-		},
 		complete:{
 			type:DataTypes.BOOLEAN
 
@@ -37,21 +30,15 @@ module.exports = function(sequelize, DataTypes){
 		dateDue:{
 			type:DataTypes.DATE
 
+		},
+		createdBy:{
+			type:DataTypes.STRING
+		},
+		assignedTo:{
+			type:DataTypes.STRING
 		}
 	}
-		// {
-		// 	classMethods:{
-		// 		associate:function(models){
-		// 			task.belongsTo(models.user, {
-		// 				foreignKey:{
-		// 					allowNull: false
-		// 				}
-		// 			});
-		// 		}
-		// 	}
-		// }
-	
 	);
-	return task;
+	return Task;
 };
 

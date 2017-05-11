@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "tikit_db",
+    "database": "TIKIT_DB",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "tikit_db",
+    "database": "TIKIT_DB",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "tikit_db",
+    "database": "TIKIT_DB",
     "host": "localhost",
     "dialect": "mysql"
   }
