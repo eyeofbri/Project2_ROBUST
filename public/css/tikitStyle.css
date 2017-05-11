@@ -1681,42 +1681,68 @@ article:nth-child(n+2){
 	margin-left: auto;
 }
 
-ul.splash {
+ul.splash,
+ul.pageNav {
 	font-family: sans-serif;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
+ul.pageNav {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 900px;
+	margin-top: 20px;
+}
 
-ul.splash li {float: left;}
+ul.splash li,
+ul.pageNav li {float: left;}
 
-ul.splash li a {
+ul.splash li a,
+ul.pageNav li a  {
     display: block;
     color: black;
     text-align: center;
     padding: 24px 16px;
     text-decoration: none;
 }
+ul.pageNav li a {
+    color: white;
+}
 
 ul.splash li a:hover:not(.active) {
-	background-color: #fff;
-	color: #333;
+	background-color: #000;
+	color: #fff;
 	border-radius: 10px;
 }
 
-ul.splash li a.active {
+ul.pageNav li a:hover:not(.active) {
+	background-color: #000;
+	color: #fff;
+	border-radius: 10px;
+}
+
+ul.splash li a.active,
+ul.pageNav li a.active {
 	background-image: url("../images/logo_small-black.png"); 
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center center;
 	min-width: 40px;
 }
-ul.splash li a.active:before{
+
+ul.pageNav li a.active {
+	background-image: url("../images/logo_small-white.png"); 
+}
+
+ul.splash li a.active:before,
+ul.pageNav li a.active:before{
 	content: "\00a0";
 }
 
-ul.splash li.right {float: right;}
+ul.splash li.right,
+ul.pageNav li.right {float: right;}
 
 .splash-mid{
 	display: flex;
@@ -1753,16 +1779,24 @@ ul.splash li.right {float: right;}
 	background-color: #ccc;
 }
 
+
+
+
 @media screen and (max-width: 600px){
     ul.splash li.right, 
-    ul.splash li {float: none;}
-    ul.splash li a.active {height: 80px;}
+    ul.splash li,
+    ul.pageNav li.right, 
+    ul.pageNav li {float: none;}
+    ul.splash li a.active,
+    ul.pageNav li a.active {height: 80px;}
 
-	ul.splash li a:not(.active) {
+	ul.splash li a:not(.active),
+	ul.pageNav li a:not(.active)  {
 		border-top: 1px solid rgba(0,0,0,0.1);
 		border-bottom: 1px solid rgba(0,0,0,0.1);
 	}
-    ul.splash li a:hover:not(.active) {
+    ul.splash li a:hover:not(.active),
+    ul.pageNav li a:hover:not(.active) {
 		border-radius: 0px;
 	}
 
@@ -1774,3 +1808,4 @@ ul.splash li.right {float: right;}
     	flex-direction: column;
     }
 }
+
