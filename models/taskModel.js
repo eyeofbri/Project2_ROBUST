@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes){
 		},
 		created_by:{
 			type:DataTypes.STRING
-			
+
 		},
 		assigned_to:{
 			type:DataTypes.STRING
@@ -38,11 +38,13 @@ module.exports = function(sequelize, DataTypes){
 		},
 		link:{
 			type:DataTypes.STRING
-	
+
 		}
 	}
-	, { timestamps: false }
+	,
+	{
+		 timestamps: false
+	}
 	);
 	return task;
 };
-

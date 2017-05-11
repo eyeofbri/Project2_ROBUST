@@ -21,7 +21,8 @@ app.use(methodOverride("_method"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-require("./routes/allRoutes.js")(app);
+require("./routes/signInRoutes.js")(app);
+require("./routes/taskRoutes.js")(app);
 
 db.sequelize.sync().then(function(){
 	app.listen(port, function(){

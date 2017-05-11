@@ -6,6 +6,9 @@ module.exports = function(sequelize, DataTypes){
 		taskID:{
 			type:DataTypes.INTEGER
 		}
+	},
+	{
+		timestamps: false
 	}
 	);
 
