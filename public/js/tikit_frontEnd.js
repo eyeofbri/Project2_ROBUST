@@ -10,8 +10,11 @@ window.onload = function() {
 
 	// closeAll_NavModules();
 
-	Initialize();
+	// Initialize();
+		drawingLogic("load");
+
 };
+
 
 
 
@@ -81,7 +84,6 @@ function Initialize() {
 		});
 	}
 
-	drawingLogic("load");
 
 	if(debugging)
 	{console.log("frontEnd INITIALIZED!!!");}
