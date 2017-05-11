@@ -42,4 +42,11 @@ module.exports = function(app){
 			res.render("task")
 	    });
   	});
+
+  	app.get("/task", function(req, res){
+		db.Task.findAll({})
+			.then(function(result) {
+			res.render("task", {task: result} );
+		});
+	});
 };

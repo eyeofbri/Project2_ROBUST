@@ -1,5 +1,248 @@
 <h1>This is the task page</h1>
 
+<nav>
+	<ul class="topnav">
+		<li><a class="logo" href="#home"></a></li>
+		<li><a href="#settings">SETTINGS</a></li>
+		<li><a href="#search">SEARCH</a></li>
+		<li><a href="#sort">SORT</a></li>
+		<li><a href="#newtask">NEW TASK</a></li>
+	</ul>
+</nav>
+
+<div class="modules-loggedIn">
+
+	<!--THE SETTINGS MODULE -->
+	<aside class="settings-holder hide">
+
+		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
+
+		<h5><!-- logged out title (css) --></h5>
+
+		<h1><!-- search title (css) --></h1>
+
+		<div class="login-form-holder">
+			<form class="login-form">
+				<input class="login-User" placeholder="username" type="text"/>
+				<input class="login-Pass" placeholder="•••••" type="password"/>
+				<button type="login-btn" id="login-btn" class="fa fa-sign-in fa-3x"></button>
+			</form>
+		</div>
+
+
+		<h2>
+			<!-- username (handlebars) -->
+			username here
+		</h2>
+
+
+		<h3>
+
+			<br><!-- search label (css)--><br>
+
+			<span class="fa fa-list-alt fa-3x" aria-hidden="true"></span>
+			<!-- users tasks created (handlebars) -->
+			10 Created<br>
+
+			<span class="fa fa-thumb-tack fa-3x" aria-hidden="true"></span>
+			<!-- users assigned tasks (handlebars) -->
+			5 Assigned To You<br>
+
+			<span class="fa fa-trophy fa-3x" aria-hidden="true"></span>
+			<!-- users completed tasks (handlebars) -->
+			5 Completed
+		</h3>
+
+		<button id="logout-btn" class="fa fa-sign-out fa-3x" type="logout-b"></button>
+
+		<div class="changePass-container-closed">
+			<button id="password-change-btn" class="fa fa-key fa-3x" type="logout-b"></button>
+
+			<div class="changePass-form-holder">
+				<form class="changePass-form">
+					<input class="old-pass" placeholder="Old Password" type="password" />
+					<input class="new-Pass" placeholder="New Password" type="password" />
+					<button type="submit" id="changePass-submit-btn" class="fa fa-lock fa-3x"></button>
+				</form>
+			</div>
+		</div>
+
+	</aside>
+
+
+
+
+	<!-- THE SEARCH MODULE -->
+	<aside class="search-holder hide">
+
+		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
+
+
+		<h1><!-- title (css)--></h1>
+
+		<!-- "PLEASE LOG IN" alert (css)-->
+		<h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
+
+		<h3><!-- search label --></h3>
+
+		<div class="search-form-holder">
+			<form class="search-form" id="">
+				<input class="new-search" placeholder="query" type="text" />
+				<button type="submit" class="fa fa-plus-circle fa-3x"></button>
+			</form>
+		</div>
+	</aside>
+
+
+
+	<!-- THE SORT MODULE -->
+	<aside class="sort-holder hide">
+
+		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
+
+		<h1><!-- title (css)--></h1>
+
+		<!-- "PLEASE LOG IN" alert (css)-->
+		<h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
+
+		<h3><!-- label (css)--></h3>
+
+		<div class="sort-select-holder">
+			<select>
+				<!-- <option value="DateUp">New - Old</option>
+				<option value="DateDown">Old - New </option>
+
+				<option value="AlphaUp">A - Z</option>
+				<option value="AlphaDown">Z - A</option>
+
+				<option value="Personal">My Assigned Tasks</option>
+
+				<option value="Personal">Due Date</option> -->
+
+				<option value="Personal">Completed First</option>
+
+				<option value="Personal">Uncompleted First</option>
+
+				<!-- CATEGORIES -->
+				<option value="Chores">Chores</option>
+				<option value="Shopping">Shopping</option>
+				<option value="Work">Work</option>
+				<option value="School">School</option>
+
+			</select>
+		</div>
+	</aside>
+
+
+	<!-- NEW TASK CREATOR-->
+
+	<aside class="newTask-holder hide">
+
+		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
+
+		<h1><!-- title (css)--></h1>
+
+		<!-- "PLEASE LOG IN" alert (css)-->
+		<h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
+
+
+		<div class="newTask-form-holder">
+
+			<form class="newTask-form" method="post" action="/addTask">
+
+				<h5><!-- sub-title (css) --></h5>
+
+				<!-- task text input -->
+				<h3></h3>
+				<textarea name="newTaskText" class="input" rows="5" placeholder="Text for a new task" required></textarea>
+
+				<!-- assigned to user select -->
+				<h3></h3>
+				<select>
+					<option value="(handlebars)"></option>
+					<option value="(handlebars)">yourself</option>
+					<option value="(handlebars)">other user1</option>
+					<option value="(handlebars)">other user2</option>
+				</select>
+
+				<!-- category select -->
+				<h3></h3>
+				<select>
+					<option value="(handlebars)"></option>
+					<option value="(handlebars)">category 1</option>
+					<option value="(handlebars)">category 2</option>
+					<option value="(handlebars)">category 3</option>
+				</select>
+
+				<!-- description input -->
+				<h3></h3>
+				<textarea name="taskDescription" class="input" rows="5" placeholder="Task Quick Description"></textarea>
+
+				<!-- Link Input -->
+				<h3></h3>
+				<input class="newTaskText" type="text" name="taskLink" placeholder="Task link attachment">
+
+
+				<!-- image Input -->
+				<h3></h3>
+
+				<div class="newTask-image-container">
+					<div class="imgNav">
+						<button type="button" onclick="img_Btn('image_import', this)"></button>
+						<button type="button" onclick="img_Btn('draw_import', this)"></button>
+					</div>
+
+					<div class="imgImport-holder hide" id="imgImport">
+
+						<h6></h6>
+						<input id="from-url" class="image-url" placeholder="url" type="text" />
+
+						<!-- <h6></h6>
+						<input id="from-local" type="file" name="taskPic" accept="image/*"> -->
+					</div>
+
+					<div class="imgDraw-holder hide" id="drawImport">
+
+						<h6></h6>
+						<div id="drawingCanvas"></div>
+					</div>
+
+					<!-- upload image button -->
+					<!-- uploads images from ... -->
+					<!-- above this to below this -->
+					<div class="uploadImg-btn-holder hide" id="uploadImg-btn-holder">
+						<button type="button" id="uploadImg-btn" onclick="img_Btn('upload_image')"></button>
+					</div>
+
+					<!-- uploaded images go here -->
+					<div id="imgUploaded-holder" class="imgUploaded-holder hide"></div>
+				</div>
+
+				<!-- due date input -->
+				<h3></h3>
+				<input class="taskText" class="due" type="date" value="2011-01-13"/>
+
+
+				<h2><!-- title (css)--></h2>
+				<button type="submit" id="addTask"></button>
+			</form>
+
+
+		</div>
+
+	</aside>
+
+</div>
+
+
+
+
+
+<!-- //////////////////// -->
+<!-- //////////////////// -->
+<!-- TASKS -->
+<!-- //////////////////// -->
+<!-- //////////////////// -->
 
 <!-- this is: the element that holds All tasks -->
 <section>
@@ -67,7 +310,7 @@
 			<div class="dates-holder">
 				<div class="date-listed">
 					<!-- // YYYY-MM-DD HH:MM:SS -->
-					<div class="date">{{splitDate date_due}}
+					<div class="date">{{date_due}}
 					<!-- 02 MAY -->
 						<!-- <sub>17</sub> -->
 					</div>
@@ -134,6 +377,3 @@
 
 <!-- end of all tasks -->
 </section>
-
-
-
