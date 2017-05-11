@@ -11,7 +11,7 @@
     content: "Current User Log In";
 }
 .form-holder h2:before{
-    content: "New User Sign Up";
+    content: "New User Sign Up Form";
 }
 
 form {
@@ -42,7 +42,7 @@ input[type=text]:hover, input[type=password]:hover {
     background-color:rgba(255,0,0,0.3);
 }
 
-button {
+.container button {
     background-color: #4CAF50;
     color: black;
     padding: 14px 20px;
@@ -62,11 +62,11 @@ button {
     border: 1px solid #ccc;
 }
 
-button:hover {
+.container button:hover {
     opacity: 0.8;
 }
 
-input[type=checkbox]{
+.container input[type=checkbox]{
     margin-top: 20px;
 }
 

@@ -1668,3 +1668,55 @@ article:nth-child(n+2){
 		border-bottom: 0px;
 	}
 }
+
+
+/*////////*/
+/*SPLASH PAGE STYLE*/
+/*////////*/
+.splash-holder{
+	max-width: 900px;	
+	background-color: #fff;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+ul.splash {
+	font-family: sans-serif;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.splash li {float: left;}
+
+ul.splash li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.splash li a:hover:not(.active) {background-color: #111;}
+
+ul.splash li a.active {
+	background-image: url("../images/logo_small-white.png"); 
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	min-width: 40px;
+}
+ul.splash li a.active:before{
+	content: "\00a0";
+}
+
+ul.splash li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.splash li.right, 
+    ul.splash li {float: none;}
+    ul.splash li a.active {height: 80px;}
+}
