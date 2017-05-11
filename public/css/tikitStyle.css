@@ -490,7 +490,7 @@ aside h1, aside h2, aside h3, aside h4{
 
 /*NEW TASK*/
 .newTask-holder h1:before{
-	content: "New Task";
+	content: "Create A New Task";
 }
 .newTask-form-holder{
 	background-color: #fff;
@@ -1747,8 +1747,9 @@ ul.splash li.right {float: right;}
 	position: fixed;
 	top: -100px;
 	left:-100px;
-	right: -100px;
-	bottom: -100px;
+	border-radius: 20px;
+	width: 200vw;
+	height: 200vh;
 	background-color: #ccc;
 }
 
