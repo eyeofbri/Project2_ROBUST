@@ -14,7 +14,7 @@
     content: "New User Sign Up";
 }
 
-.container form {
+.loginSignup {
     border: 5px solid #000;
     background-color: #fff;
     max-width: 550px;
@@ -23,8 +23,8 @@
     overflow: hidden;
 }
 
-.container input[type=text], 
-.container input[type=password] {
+input[type=text], 
+input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 20px 0;
@@ -35,8 +35,8 @@
     font-size: 18px;
 }
 
-.container input[type=text]:hover, 
-.container input[type=password]:hover {
+input[type=text]:hover, 
+input[type=password]:hover {
     background-color:#ccc;
 }
 
@@ -68,7 +68,7 @@
     opacity: 0.8;
 }
 
-.container input[type=checkbox]{
+ input[type=checkbox]{
     margin-top: 20px;
 }
 

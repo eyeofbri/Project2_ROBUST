@@ -465,4 +465,3 @@ function submitTask(el) {
 
 	//send to route for new task right here
 }
-

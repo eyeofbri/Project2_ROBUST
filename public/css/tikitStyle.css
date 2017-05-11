@@ -1668,3 +1668,90 @@ article:nth-child(n+2){
 		border-bottom: 0px;
 	}
 }
+
+
+
+/*/////////////////////*/
+/*SPLASH PAGE STYLE*/
+/*/////////////////////*/
+.splash-holder{
+	margin-top: 40px;
+	max-width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: sans-serif;
+}
+.splash-holder h1{
+	text-align: center;
+	color: #fff;
+	letter-spacing: 3px;
+}
+ul.splash {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+
+ul.splash li {float: left;}
+
+ul.splash li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    /*height: 100%;*/
+}
+
+ul.splash li a:hover:not(.active) {
+	background-color: #fff;
+	color:#333;
+}
+
+ul.splash li a.active {
+	background-image: url("../images/logo_small-white.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	min-width: 40px;
+	cursor: default;
+}
+ul.splash li a.active:after {
+	content: "\00a0 ";
+}
+ul.splash li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.splash li.right, 
+    ul.splash li {float: none;}
+    ul.splash li a.active{
+    	height: 80px;
+    }
+}
+
+.splash-visual{
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background-color: #000;
+	border:5px solid #fff;
+	width: calc(100% - 40px);
+	height: 400px;
+	border-radius: 20px;
+}
+
+.cloud-object{
+	width: 50px;
+	height:50px;
+	background-color:red;
+	position:fixed;
+}
+.splash-info{
+	width: 100%;
+	background-color: #fff;
+}
+
