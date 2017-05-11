@@ -864,12 +864,21 @@ article:nth-child(n+2){
 	width: 100px;
 	background-color: rgba(0,0,0,0.3);
 	border-color: rgba(0,0,0,0.3);
-	color:black;
+	color:rgba(0,0,0,0.5);
 	border-radius: 100%;
 	font-size: 40px;
 }
-.completeBtn:hover, 
-.completeBtn:focus{
+.completed{
+	background-color: black;
+	color: yellow;
+	text-shadow: 
+		2px 2px 1px #000,
+		-2px -2px 1px #000,
+		-2px 2px 1px #000,
+		2px -2px 1px #000;
+}
+.completeBtn:not(.completed):hover, 
+.completeBtn:not(.completed):focus{
 	background-color: rgba(0,0,0,0.5);
 }
 

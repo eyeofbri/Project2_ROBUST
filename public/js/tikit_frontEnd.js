@@ -310,6 +310,7 @@ function img_Btn(toggleName, el) {
 
 				$('#imgUploaded-holder').html("");
 				img.attr('src', src);
+				img.attr('id', "uploaded-image");
 				img.appendTo('#imgUploaded-holder');
 
 				//hide IMG imports
@@ -359,7 +360,7 @@ function img_Btn(toggleName, el) {
 			var img    = canvas.toDataURL("image/png");
 
 			$('#imgUploaded-holder').html("");
-			$('#imgUploaded-holder').append('<img src="'+img+'"/>');
+			$('#imgUploaded-holder').append('<img id="uploaded-image" src="'+img+'"/>');
 
 			
 			//hide canvas
@@ -375,9 +376,93 @@ function img_Btn(toggleName, el) {
 			document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder hide";
 		
 		}
+	}
+}
 
-		
+
+function submitTask(el) {
+	//create object for new task data
+	var form_Obj = {};
+
+	//GATHER ITEMS FOR NEW TASK
+
+	// main task text
+	var task = $('textarea[name="newTask-Text"]').val().trim();
+	form_Obj.task =task;
+
+	//description
+	var description = $('textarea[name="newTask-Description"]').val().trim();
+	if(description !=""){	
+		form_Obj.description =description; 
 	}
 
+	////////NEED TO///////////////
+	//get my user info for...
+	///////////////////////
+	//...created by
+	var created_by = "brian test user";
+	if(created_by !=""){	
+		form_Obj.created_by =created_by; 
+	}
+
+	//assign to a user
+	var assigned_to = $('select[name="newTask-assignedTo"]').val().trim();
+	if(assigned_to !=""){	
+		form_Obj.assigned_to= assigned_to; 
+	}
+
+	////////NEED TO///////////////
+	//get and format current time for...
+	///////////////////////
+	//date created
+	var date_created = "11-21-1987 3pm";
+	if(date_created !=""){
+		form_Obj.date_created =date_created;
+	}
+
+	var date_due = $('input[name="newTask-Date"]').val().trim();
+	if(date_due !=""){
+		form_Obj.date_due =date_due;
+	}
+	// returns this format:
+	// 1987-11-21T15:02
+	// db needs this:
+	// YYYY-MM-DD HH:MM:SS
+
+	//category
+	var category = $('select[name="newTask-category"]').val();
+	if(category !=""){	
+		form_Obj.category =category;
+	}
+
+	//uploaded image
+	var drawing = $('#uploaded-image').attr('src');
+	if(drawing !=""){
+		//creates a data:image/png;base64
+		////////NEED TO///////////////
+		//change to a blob
+		///////////////////////
+		form_Obj.drawing =drawing; 
+	}
+
+	//reference link
+	var link = $('input[name="newTask-Link"]').val().trim();
+	if(link !=""){	
+		form_Obj.link =link; 
+	}
+
+	//IF actually submitted...
+	//...clear form
+	if(task !=""){
+		el.parentNode.reset();
+
+		if(debugging)
+		console.log("New Task Take From Form and Placed into: " + form_Obj);
+	}else{
+		console.log("Error Submitting Form!");
+	}
+
+
+	//send to route for new task right here
 }
 

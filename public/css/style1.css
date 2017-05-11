@@ -1,17 +1,5 @@
-body{
-    background-color: #333;
-    margin:0px;
-    font-family: sans-serif;
-}
-
-
-a{
-    text-decoration: none;
-    color: rgb(59,153,252);
-}
-
-
-h1{
+.form-holder h1,
+.form-holder h2{
     color:#fff;
     text-align: center;
     width:100%;
@@ -19,8 +7,11 @@ h1{
     letter-spacing: 1px;
     font-size: larger;
 }
-h1:before{
+.form-holder h1:before{
     content: "Current User Log In";
+}
+.form-holder h2:before{
+    content: "New User Sign Up";
 }
 
 form {
@@ -45,6 +36,10 @@ input[type=text], input[type=password] {
 
 input[type=text]:hover, input[type=password]:hover {
     background-color:#ccc;
+}
+
+.fail input[type=text], .fail input[type=password] {
+    background-color:rgba(255,0,0,0.3);
 }
 
 button {
@@ -79,7 +74,7 @@ input[type=checkbox]{
     width: calc(100% - 40px);
     margin-right: 20px;
     margin-left: 20px;
-   
+   font-family: sans-serif;
 }
 
 .cancelbtn {
@@ -106,10 +101,21 @@ img.avatar {
 .container {
     padding: 16px;
 }
+
+.fail:before{
+    content:"invalid user name / password\A";
+    text-transform: capitalize;
+    font-weight: bolder;
+    color: red;
+    white-space: pre;
+    line-height: 40px;
+    text-align: center;
+    font-size: larger;
+}
+
 .newUser{
     padding:16px;
     background-color:#f1f1f1;
-    text-align: center;
 }
 
 .psw {
@@ -132,6 +138,7 @@ img.avatar {
     width:100%;
     max-width: 550px;
     margin: 20px auto 40px auto;
+    text-align: center;
 }
 .newUser{
     margin-right: 20px;
@@ -141,6 +148,7 @@ img.avatar {
     color: #fff;
     font-size: large;
     font-weight: bolder;
+    font-family: sans-serif;
 }
 .newUser a{
     color: rgba(200,200,200,0.8);
