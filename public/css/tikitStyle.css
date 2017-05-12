@@ -442,7 +442,9 @@ aside h1, aside h2, aside h3, aside h4{
 .search-form button:hover{
 	color: rgba(0,0,0,0.8);
 }
-
+.search-form label{
+	padding-right:10px;
+}
 .modules-loggedOut .search-holder h3,
 .modules-loggedOut .search-form-holder{
 	display: none;
@@ -1675,10 +1677,12 @@ article:nth-child(n+2){
 /*////////*/
 .splash-holder{
 	max-width: 900px;	
-	/*background-color: #fff;*/
 	margin-top: 20px;
 	margin-right: auto;
 	margin-left: auto;
+	margin-bottom: 80px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 ul.splash,
@@ -1750,6 +1754,8 @@ ul.pageNav li.right {float: right;}
 	justify-content: center;
 	align-content: center;
 	position: relative;
+	margin-top: 70px;
+	padding-bottom: 40px;
 }
 
 .splash-mid .form-holder{
@@ -1781,6 +1787,261 @@ ul.pageNav li.right {float: right;}
 
 
 
+.splash-guru{
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-size: 18px;
+    font-family: sans-serif;
+	color: rgba(0,0,0,0.5);
+	padding-bottom: 80px;
+	padding-top: 50px;
+	border-top: 1px solid rgba(0,0,0,0.4);
+}
+.guru-visual-holder{
+	width: 300px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 160px;
+}
+.guru{
+	width: 200px;
+	height: 200px;
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+    justify-content: center;
+	background-image: url(../images/guru.png);
+	background-size: 100% 100%;
+	background-position: center center;
+	animation: guru-animate 3s ease-in-out infinite;
+	position: relative;
+}
+
+@keyframes guru-animate {
+  0% {
+    bottom: 20px;
+  }
+  50% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 20px;
+  }
+}
+.guru-shadow{
+	width: 150px;
+	height: 20px;
+	background-color: #ccc;
+	border-radius: 100%;
+	animation: guru-shadow-animate 3s ease-in-out infinite;
+	position: relative;
+}
+
+@keyframes guru-shadow-animate {
+  0% {
+    width: 150px;
+  }
+  50% {
+    width: 120px;
+  }
+  100% {
+    width: 150px;
+  }
+}
+.splash-guru span{
+	margin-top: 40px;
+	font-size: xx-large;
+	color: rgba(0,0,0,0.8);
+}
+
+.guru-rotator{
+	width: 200px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	animation: guru-task-rotate 9s linear infinite;
+}
+
+@keyframes guru-task-rotate {
+  0%{
+    -ms-transform: rotate(0deg); /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+    transform: rotate(360deg);
+  }
+}
+
+.guru-tasks-holder {
+	margin-right: auto;
+	margin-left: auto;
+    width: 24em;
+    height: 24em;
+    padding: 2.8em; /*= 2em * 1.4 (2em = half the width of an img, 1.4 = sqrt(2))*/
+    /*margin: 1.75em auto 0;*/
+}
+.guru-tasks-holder a {
+	cursor: default;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4em; height: 4em;
+    margin: -2em; /* 2em = 4em/2 */ /* half the width */
+}
+.guru-tasks-holder img { 
+	display: block; 
+	width: 100%; 
+	overflow: hidden;
+	border-radius: 100%;
+}
+.deg0 {
+    -webkit-transform: translate(12em);
+    -moz-transform: translate(12em);
+    -ms-transform: translate(12em);
+    -o-transform: translate(12em);
+    transform: translate(12em);
+} /* 12em = half the width of the wrapper */
+.lt-ie9 .deg0 {
+    margin-left: 10em;
+}
+.deg45 {
+    -webkit-transform: rotate(45deg) translate(12em) rotate(-45deg);
+    -moz-transform: rotate(45deg) translate(12em) rotate(-45deg);
+    -ms-transform: rotate(45deg) translate(12em) rotate(-45deg);
+    -o-transform: rotate(45deg) translate(12em) rotate(-45deg);
+    transform: rotate(45deg) translate(12em) rotate(-45deg);
+}
+.lt-ie9 .deg45 {
+    margin: 6.485em;
+}
+.deg90 {
+    -webkit-transform: rotate(90deg) translate(12em) rotate(-90deg);
+    -moz-transform: rotate(90deg) translate(12em) rotate(-90deg);
+    -ms-transform: rotate(90deg) translate(12em) rotate(-90deg);
+    -o-transform: rotate(90deg) translate(12em) rotate(-90deg);
+    transform: rotate(90deg) translate(12em) rotate(-90deg);
+}
+.lt-ie9 .deg90 {
+    margin: 6.485em -10.485em;
+}
+.deg135 {
+    -webkit-transform: rotate(135deg) translate(12em) rotate(-135deg);
+    -moz-transform: rotate(135deg) translate(12em) rotate(-135deg);
+    -ms-transform: rotate(135deg) translate(12em) rotate(-135deg);
+    -o-transform: rotate(135deg) translate(12em) rotate(-135deg);
+    transform: rotate(135deg) translate(12em) rotate(-135deg);
+}
+.lt-ie9 .deg135 {
+    margin: 6.485em -10.485em;
+}
+.deg180 {
+    -webkit-transform: translate(-12em);
+    -moz-transform: translate(-12em);
+    -ms-transform: translate(-12em);
+    -o-transform: translate(-12em);
+    transform: translate(-12em);
+}
+.lt-ie9 .deg180 {
+    margin-left: -14em;
+}
+.deg225 {
+    -webkit-transform: rotate(225deg) translate(12em) rotate(-225deg);
+    -moz-transform: rotate(225deg) translate(12em) rotate(-225deg);
+    -ms-transform: rotate(225deg) translate(12em) rotate(-225deg);
+    -o-transform: rotate(225deg) translate(12em) rotate(-225deg);
+    transform: rotate(225deg) translate(12em) rotate(-225deg);
+}
+.lt-ie9 .deg225 {
+    margin: -10.485em;
+}
+.deg270 {
+    -webkit-transform: rotate(270deg) translate(12em) rotate(-270deg);
+    -moz-transform: rotate(270deg) translate(12em) rotate(-270deg);
+    -ms-transform: rotate(270deg) translate(12em) rotate(-270deg);
+    -o-transform: rotate(270deg) translate(12em) rotate(-270deg);
+    transform: rotate(270deg) translate(12em) rotate(-270deg);
+}
+.lt-ie9 .deg270 {
+    margin: -10.485em;
+}
+.deg315 {
+    -webkit-transform: rotate(315deg) translate(12em) rotate(-315deg);
+    -moz-transform: rotate(315deg) translate(12em) rotate(-315deg);
+    -ms-transform: rotate(315deg) translate(12em) rotate(-315deg);
+    -o-transform: rotate(315deg) translate(12em) rotate(-315deg);
+    transform: rotate(315deg) translate(12em) rotate(-315deg);
+}
+.lt-ie9 .deg315 {
+    margin: -10.485em 6.485em;
+}
+
+/* this is just for showing the angle on hover */
+.guru-tasks-holder a:not(.center):before {
+    position: absolute;
+    width: 4em;
+    color: white;
+    opacity: 0;
+    background: rgba(0,0,0,.5);
+    font: 1.25em/3.45 Courier, monospace;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-indent: -2em;
+    text-shadow: 0 0 .1em deeppink;
+    transition: .7s; /* only works in Firefox */
+    content: attr(class)'°';
+}
+/*.guru-tasks-holder a:hover:before { opacity: 1; }*/
+
+/* this is for showing the circle on which the images are placed */
+/*.guru-tasks-holder:after {
+    position: absolute;
+    top: 2.8em; left: 2.8em;
+    width: 24em; height: 24em;
+    border: dashed 1px deeppink;
+    border-radius: 50%;
+    opacity: .3;
+    pointer-events: none;
+    content: '';
+}*/
+/*.guru-tasks-holder:hover:after { opacity: 1; }
+.guru-tasks-holder a:not(.center):after {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 .5em .5em white;
+    margin: -2px;
+    background: deeppink;
+    opacity: .3;
+    content: '';
+}
+.guru-tasks-holder:hover a:after { opacity: 1; }
+.guru-tasks-holder a:hover:after { opacity: .3; }*/
+
+
+
+
+
+
+
+.splash-flag{
+	background-color: #fff;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	height: 300px;
+}
+
 
 @media screen and (max-width: 600px){
     ul.splash li.right, 
@@ -1800,12 +2061,18 @@ ul.pageNav li.right {float: right;}
 		border-radius: 0px;
 	}
 
-    .splash-mid .form-holder,
-    .about-holder{ flex: 1;}
+    .splash-mid .form-holder{ flex: 1; }
+    
+    .about-holder{ 
+    	flex: 1; 
+    	padding-bottom: 20px;
+    }
 
     .splash-mid{
-    	margin-top: 20px;
+    	margin-top: 40px;
     	flex-direction: column;
     }
+   .splash-guru{
+   		text-align: center;
+   }
 }
-
