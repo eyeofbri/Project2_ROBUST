@@ -23,23 +23,28 @@ module.exports = function(app){
 				}
 				else {
 					if(dbUser.userPassword === req.body.password) {
-						res.render("task")
+						res.render("index", { userName: dbUser.userName });
 					} else {
-						res.render("login")
+						res.render("login");
 					}
 				}
 	    });
   	});
 
-	app.post("/signup", function(req, res){
+		app.post("/signup", function(req, res){
 	    console.log(req.body);
 	    db.User.create({
 				userName:req.body.name,
 				userEmail:req.body.email,
 				userPassword:req.body.password
 			}).then(function(dbUser){
-	      console.log(dbUser);
-			res.render("task")
+	      // console.log(dbUser);
+			res.render("index", dbUser);
 	    });
   	});
+
+		app.get("/logout", function(req, res){
+			res.render("home");
+		});
+
 };

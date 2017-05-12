@@ -1,125 +1,19 @@
+<h1>Inside Index file</h1>
+<h2>Welcome
+	{{this.userName}}</h2>
 
-
-<!-- HANDLEBARS NEEDED: to: check if logged in...
-...if not... change modules-loggedIn TO modules-loggedOut -->
-<div class="modules-loggedIn">
-
-	<!--THE SETTINGS MODULE -->
-	<aside class="settings-holder hide">
-
-		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
-
-		<h5><!-- logged out title (css) --></h5>
-
-		<h1><!-- search title (css) --></h1>
-
-		<h2>
-			<!-- HANDLEBARS NEEDED: to: fill in username...-->
-			username here
-		</h2>
-
-
-		<h3>
-			
-			<br><!-- search label (css)--><br>
-
-			<span class="fa fa-list-alt fa-3x" aria-hidden="true"></span>
-			<!-- users tasks created (handlebars) -->
-			10 Created<br>
-
-			<span class="fa fa-thumb-tack fa-3x" aria-hidden="true"></span>
-			<!-- users assigned tasks (handlebars) -->
-			5 Assigned To You<br>
-
-			<span class="fa fa-trophy fa-3x" aria-hidden="true"></span>
-			<!-- users completed tasks (handlebars) -->
-			5 Completed
-		</h3>
-
-		<button id="logout-btn" class="fa fa-sign-out fa-3x" type="logout-b"></button>
-
-		<div class="changePass-container-closed">
-			<button id="password-change-btn" class="fa fa-key fa-3x" type="logout-b"></button>
-		
-			<div class="changePass-form-holder">
-				<form class="changePass-form">
-					<input class="old-pass" placeholder="Old Password" type="password" />
-					<input class="new-Pass" placeholder="New Password" type="password" />
-					<button type="submit" id="changePass-submit-btn" class="fa fa-lock fa-3x"></button>
-				</form>
-			</div>
-		</div>
-
-	</aside>
-
-
-
-
-	<!-- THE SEARCH MODULE -->
-	<aside class="search-holder hide">
-
-		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
-
-		
-		<h1><!-- title (css)--></h1>
-
-		<!-- "PLEASE LOG IN" alert (css)-->
-		<h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
-
-		<h3><!-- search label --></h3>
-		
-		<div class="search-form-holder">
-			<form class="search-form" id="">
-				<input class="new-search" placeholder="query" type="text" />
-				<button type="submit" class="fa fa-plus-circle fa-3x"></button>
-			</form>
-		</div>
-	</aside>
-
-
-
-	<!-- THE SORT MODULE -->
-	<aside class="sort-holder hide">
-		
-		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
-
-		<h1><!-- title (css)--></h1>
-
-		<!-- "PLEASE LOG IN" alert (css)-->
-		<h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
-
-		<h3><!-- label (css)--></h3>
-
-		<div class="sort-select-holder">
-			<select>
-				<!-- <option value="DateUp">New - Old</option>
-				<option value="DateDown">Old - New </option>
-
-				<option value="AlphaUp">A - Z</option>
-				<option value="AlphaDown">Z - A</option>
-
-				<option value="Personal">My Assigned Tasks</option>
-
-				<option value="Personal">Due Date</option> -->
-
-				<option value="Personal">Completed First</option>
-
-				<option value="Personal">Uncompleted First</option>
-
-				<!-- CATEGORIES -->
-				<option value="Chores">Chores</option>
-				<option value="Shopping">Shopping</option>
-				<option value="Work">Work</option>
-				<option value="School">School</option>
-
-			</select>
-		</div>
-	</aside>
+	<div class="splash-holder">
+		<ul class="splash">
+		  <li><a class="active" href="/settings">Settings</a></li>
+		  <li class="right"><a href="/search">Search</a></li>
+		  <li class="right"><a href="/addTask">NewTask</a></li>
+		  <li class="right"><a href="/logout">Logout</a></li>
+		</ul>
 
 
 	<!-- NEW TASK CREATOR-->
 
-	<aside class="newTask-holder hide">
+	<aside class="newTask-holder">
 
 		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
 
@@ -130,11 +24,11 @@
 
 
 		<div class="newTask-form-holder">
-			
+
 			<form class="newTask-form" onsubmit="return false">
 
 				<h5><!-- sub-title (css) --></h5>
-				
+
 				<!-- task text input -->
 				<h3></h3>
 				<textarea name="newTask-Text" class="input" rows="5" placeholder="Text for a new task" required></textarea>
@@ -215,151 +109,3 @@
 	</aside>
 
 </div>
-
-
-
-
-
-<!-- //////////////////// -->
-<!-- //////////////////// -->
-<!-- TASKS -->
-<!-- //////////////////// -->
-<!-- //////////////////// -->
-
-
-
-
-<!-- this is: the element that holds All tasks -->
-<section>
-
-	{{#each task }}
-
-  <!--<h1>{{animalType}}</h1>
-	<h1>{{pet}}</h1> 
-	<h1>{{fierceness}}</h1> -->
-
-	<!-- this is: a single task holder-->
-	<article>
-
-		<div class="task-leftSide">
-			<div class="task-main">
-				<div class="completeBtn-holder">
-					<!-- this is: task complete button -->
-					<button class="completeBtn">
-						<span class="fa fa-check fa-2x" aria-hidden="true"></span>
-					</button>
-				</div>
-
-				<div class="taskText-holder">
-					<!-- this is: the main taskt text display -->
-					<div class="taskText">
-						{{task}}
-					</div>
-				</div>
-			</div>
-
-
-			<div class="assignedTo-CreatedBy">
-				<div class="assignedTo">{{assigned_to}}</div>
-				<div class="createdBy">{{created_by}}</div>
-			</div>
-
-
-			<div class="details-holder-closed">
-
-				<button class="detailsToggle-btn" onclick="UI_Btn(this)"></button>
-
-				<div class="category-holder"> {{category}} </div>
-
-				<div class="task-description"> {{description}} </div>
-
-				<div class="task-link-holder">
-					<a class="task-link" target="_blank" href="{{link}}">{{link}}</a>
-				</div>
-
-				<div class="taskDrawing-SectionContainer">
-					<!-- this holds this drawings button and img) -->
-					<div class="drawingImg-holder">
-						<!-- this is the drawing grow shrink toggle -->
-						<button class="drawBtn-closed" onclick="UI_Btn(this,'draw')">
-							<!-- the actual drawing -->
-							<img class="drawingImg" src="testDrawing.jpg">
-						</button>
-					</div>
-				</div>
-
-				
-			</div>
-
-
-			<div class="dates-holder">
-				<div class="date-listed">
-					<!-- // YYYY-MM-DD HH:MM:SS -->
-					<div class="date">{{splitDate date_due}}
-					<!-- 02 MAY -->
-						<!-- <sub>17</sub> -->
-					</div>
-					<div class="time">10:39 PM</div>
-				</div>
-				<div class="date-due">
-					<div class="date">05 MAY
-						<sub>17</sub>
-					</div>
-					<div class="time">2:02 PM</div>
-				</div>
-			</div>
-
-		<!-- end of the left-side of a task -->
-		</div>
-
-		<div class="task-rightSide-closed">
-			<div class="comments-SectionContainer">
-
-				<button class="comments-toggle-btn-OUTER" data-commentNumber="7" onclick="UI_Btn(this,'outer')">
-					<span class="fa fa-comment fa-2x" aria-hidden="true"></span>
-				</button>
-
-				<div class="comments-holder">
-					<button class="comments-toggle-btn-INNER fa fa-comment fa-1x"
-					data-commentNumber="7" onclick="UI_Btn(this,'inner')"></button>
-
-					<div class="comments-list">
-						<ol>
-							<li><span>Brian:</span>This is a comment on a task! Maybe it's a question??</li>
-							<li><span>Admin:</span>Got it!</li>
-							<li><span>Admin:</span>Here is you're answer.... Yes.</li>
-							<li><span>Brian:</span>Okay.</li>
-							<li><span>Admin:</span>Cool.</li>
-							<li><span>Brian:</span>But what if there is more text?</li>
-							<li><span>Admin:</span>It'll work.</li>
-						</ol>
-					</div>
-
-					<div class="comment-form-holder">
-						<!-- this woold need an id link to this tasks comment obj -->
-						<form class="comment-form" id="">
-							<input class="new-comment" placeholder="message" type="text" />
-							<button type="submit" class="fa fa-plus-circle fa-3x"></button>
-						</form>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="edit-delete-btn-holder">
-				<button class="edit-task fa fa-pencil-square fa-1x"></button>
-				<button class="delete-task fa fa-trash fa-1x"></button>
-			</div>
-		<!-- end of the right-side of a task -->
-		</div>
-
-	<!-- end of a task -->
-	</article>
-
-	{{/each}}
-
-
-<!-- end of all tasks -->
-</section>
-
