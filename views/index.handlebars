@@ -4,108 +4,24 @@
 
 	<div class="splash-holder">
 		<ul class="splash">
-		  <li><a class="active" href="/settings">Settings</a></li>
+			<li class="right"><a href="/logout">Logout</a></li>
+		  <li class="right"><a href="/dashboard">Dashboard</a></li>
 		  <li class="right"><a href="/search">Search</a></li>
 		  <li class="right"><a href="/addTask">NewTask</a></li>
-		  <li class="right"><a href="/logout">Logout</a></li>
 		</ul>
 
 
-	<!-- NEW TASK CREATOR-->
+		<div class="">  //To get the last 10 tasks from the DB
+			<a href="/getTask"></a>
+			<h2>Tasks Recently added</h2>
+			{{#each dbTask}}
+			
+				{{this.task}}
+				{{this.description}}
+				{{this.complete}}
+				{{this.assigned_to}}
+				{{this.date_due}}
 
-	<aside class="newTask-holder">
-
-		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
-
-		<h1><!-- title (css)--></h1>
-
-		<!-- "PLEASE LOG IN" alert (css)-->
-		<h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
-
-
-		<div class="newTask-form-holder">
-
-			<form class="newTask-form" onsubmit="return false">
-
-				<h5><!-- sub-title (css) --></h5>
-
-				<!-- task text input -->
-				<h3></h3>
-				<textarea name="newTask-Text" class="input" rows="5" placeholder="Text for a new task" required></textarea>
-
-				<!-- assigned to user select -->
-				<h3></h3>
-				<select name="newTask-assignedTo">
-					<option value=""></option>
-					<option value="(handlebars yourself)">yourself</option>
-					<option value="(handlebars user1)">other user1</option>
-					<option value="(handlebars user2)">other user2</option>
-				</select>
-
-				<!-- category select -->
-				<h3></h3>
-				<select name="newTask-category">
-					<option value=""></option>
-					<option value="(handlebars)">category 1</option>
-					<option value="(handlebars)">category 2</option>
-					<option value="(handlebars)">category 3</option>
-				</select>
-
-				<!-- description input -->
-				<h3></h3>
-				<textarea name="newTask-Description" class="input" rows="5" placeholder="Task Quick Description"></textarea>
-
-				<!-- Link Input -->
-				<h3></h3>
-				<input class="newTaskText" type="text" name="newTask-Link" placeholder="Task link attachment">
-
-
-				<!-- image Input -->
-				<h3></h3>
-
-				<div class="newTask-image-container">
-					<div class="imgNav">
-						<button type="button" onclick="img_Btn('image_import', this)"></button>
-						<button type="button" onclick="img_Btn('draw_import', this)"></button>
-					</div>
-
-					<div class="imgImport-holder hide" id="imgImport">
-
-						<h6></h6>
-						<input id="from-url" class="image-url" placeholder="url" type="text" />
-
-						<!-- <h6></h6>
-						<input id="from-local" type="file" name="taskPic" accept="image/*"> -->
-					</div>
-
-					<div class="imgDraw-holder hide" id="drawImport">
-
-						<h6></h6>
-						<div id="drawingCanvas"></div>
-					</div>
-
-					<!-- upload image button -->
-					<!-- uploads images from ... -->
-					<!-- above this to below this -->
-					<div class="uploadImg-btn-holder hide" id="uploadImg-btn-holder">
-						<button type="button" id="uploadImg-btn" onclick="img_Btn('upload_image')"></button>
-					</div>
-
-					<!-- uploaded images go here -->
-					<div id="imgUploaded-holder" class="imgUploaded-holder hide"></div>
-				</div>
-
-				<!-- due date input -->
-				<h3></h3>
-				<input type="datetime-local" name="newTask-Date" class="taskText">
-
-				<h2><!-- title (css)--></h2>
-				<button type="submit" id="addTask" onclick="submitTask(this)"></button>
-			</form>
-
-
+			{{/each}}
 		</div>
-
-	</aside>
-
 </div>

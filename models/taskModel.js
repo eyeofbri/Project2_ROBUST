@@ -32,9 +32,12 @@ module.exports = function(sequelize, DataTypes){
 			type:DataTypes.STRING
 
 		},
-		drawing:{
+		drawing_Image:{
 			type:DataTypes.BLOB
 
+		},
+		drawing_URL:{
+			type:DataTypes.STRING
 		},
 		link:{
 			type:DataTypes.STRING

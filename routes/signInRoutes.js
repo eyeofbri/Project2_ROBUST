@@ -10,10 +10,6 @@ module.exports = function(app){
 		res.render("login");
 	});
 
-	app.get("/signup", function(req, res){
-		res.render("signup");
-	});
-
 	app.post("/login", function(req, res){
 	    console.log(req.body);
 	    db.User.findOne({where:{userEmail:req.body.email}}).then(function(dbUser){
@@ -23,13 +19,24 @@ module.exports = function(app){
 				}
 				else {
 					if(dbUser.userPassword === req.body.password) {
-						res.render("index", { userName: dbUser.userName });
+						db.Task.findAll({
+
+						}).then(function(dbTasks){
+							res.render("index", { userName: dbUser.userName,
+																		dbTask:dbTasks});
+						});
+
 					} else {
 						res.render("login");
 					}
 				}
 	    });
   	});
+
+
+	app.get("/signup", function(req, res){
+		res.render("signup");
+	});
 
 		app.post("/signup", function(req, res){
 	    console.log(req.body);
@@ -38,10 +45,15 @@ module.exports = function(app){
 				userEmail:req.body.email,
 				userPassword:req.body.password
 			}).then(function(dbUser){
-	      // console.log(dbUser);
-			res.render("index", dbUser);
+				db.Task.findAll({
+
+				}).then(function(dbTasks){
+					res.render("index", { userName: dbUser.userName,
+																dbTask:dbTasks});
+				});
 	    });
   	});
+
 
 		app.get("/logout", function(req, res){
 			res.render("home");
