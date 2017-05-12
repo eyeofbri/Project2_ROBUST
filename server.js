@@ -24,6 +24,7 @@ app.set("view engine", "handlebars");
 require("./routes/signInRoutes.js")(app);
 require("./routes/taskRoutes.js")(app);
 require("./routes/searchRoutes.js")(app);
+require("./routes/dashboardRoutes.js")(app);
 
 db.sequelize.sync().then(function(){
 	app.listen(port, function(){

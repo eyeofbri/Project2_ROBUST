@@ -5,36 +5,22 @@
 		<h1><!-- search title (css) --></h1>
 		<h2>
 			<!-- HANDLEBARS NEEDED: to: fill in username...-->
+			{{this.name}}
 		</h2>
 
 		<h3>
 			<br><!-- search label (css)--><br>
 			<span class="fa fa-list-alt fa-3x" aria-hidden="true"></span>
 			<!-- users tasks created (handlebars) -->
-
-			10 Created<br>
+			 {{this.numCreated}} Created<br>
 
 			<span class="fa fa-thumb-tack fa-3x" aria-hidden="true"></span>
 			<!-- users assigned tasks (handlebars) -->
-			5 Assigned To You<br>
+		 	{{this.numAssigned}} Assigned To You<br>
 
 			<span class="fa fa-trophy fa-3x" aria-hidden="true"></span>
 			<!-- users completed tasks (handlebars) -->
-			5 Completed
+		 	{{this.numCompleted}} Completed
 		</h3>
-
-		<button id="logout-btn" class="fa fa-sign-out fa-3x" type="logout-b"></button>
-
-		<div class="changePass-container-closed">
-			<button id="password-change-btn" class="fa fa-key fa-3x" type="logout-b"></button>
-
-			<div class="changePass-form-holder">
-				<form class="changePass-form">
-					<input class="old-pass" placeholder="Old Password" type="password" />
-					<input class="new-Pass" placeholder="New Password" type="password" />
-					<button type="submit" id="changePass-submit-btn" class="fa fa-lock fa-3x"></button>
-				</form>
-			</div>
-		</div>
 
 	</aside>
