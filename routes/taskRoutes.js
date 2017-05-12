@@ -9,17 +9,17 @@ module.exports = function(app){
   app.get("/search", function(req, res){
     res.render("search");
   });
-  app.get("/addTask", function(req, res){
-    res.render("task");
+  app.get("/addTask/:userName", function(req, res){
+    res.render("task", {userName:req.params.userName});
   });
 
-	app.post("/addTask", function(req, res){
+	app.post("/addTask/:userName", function(req, res){
 	    console.log(req.body);
 	    db.Task.create({
         task:req.body.taskName,
         description:req.body.taskDescription,
         complete:false,
-        created_by:req.body.assigned_to,
+        created_by:req.params.userName,
         assigned_to:req.body.assigned_to,
         category:req.body.taskCategory,
         date_created:new Date(),
@@ -31,7 +31,7 @@ module.exports = function(app){
         db.Task.findAll({
 
         }).then(function(dbTasks){
-          res.render("index", { userName: req.body.assigned_to,
+          res.render("index", { userName: req.params.userName,
                                 dbTask:dbTasks});
         });
 	    });
