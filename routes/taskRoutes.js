@@ -24,7 +24,7 @@ module.exports = function(app){
         category:req.body.taskCategory,
         date_created:new Date(),
         date_due:req.body.dueDate,
-        drawing_URLurl:req.body.imageURL
+        drawing_URL:req.body.imageURL
       }).then(function(dbTask){
 	      // console.log(dbTask);
         console.log("Going back to index page...");
