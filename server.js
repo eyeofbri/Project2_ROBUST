@@ -25,7 +25,13 @@ require("./routes/signInRoutes.js")(app);
 require("./routes/taskRoutes.js")(app);
 require("./routes/searchRoutes.js")(app);
 
-db.sequelize.sync().then(function(){
+// db.sequelize.sync().then(function(){
+// 	app.listen(port, function(){
+// 		console.log("App listening on PORT" + port);
+// 	});
+// });
+
+db.sequelize.sync({force:true}).then(function(){
 	app.listen(port, function(){
 		console.log("App listening on PORT" + port);
 	});

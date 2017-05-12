@@ -1,8 +1,18 @@
 <!-- THE SEARCH MODULE -->
+
+<div class="splash-holder">
+  <ul class="pageNav">
+    <li><a class="active" href="#home"></a></li>
+    <li class="right"><a href="/logout">Logout</a></li>
+    <li class="right"><a href="/dashboard">Dashboard</a></li>
+    <li class="right"><a href="/addTask">New Task</a></li>
+  </ul>
+</div>
+
+
+<div class="modules-loggedIn">
+
 <aside class="search-holder">
-
-  <button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
-
 
   <h1><!-- title (css)--></h1>
 
@@ -13,33 +23,23 @@
 
   <div class="search-form-holder">
     <form class="search-form" id="" action="/searchTask" method="POST">
-      <label for="">Search By Task Name</label>
+      <label for="">By Task Name </label>
       <input class="new-search" placeholder="query" type="text" name="taskName" />
       <button type="submit" class="fa fa-plus-circle fa-3x"></button>
     </form>
   </div>
-</aside>
 
-<aside class="search-holder">
-
-  <button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
-
-
-  <h1><!-- title (css)--></h1>
-
-  <!-- "PLEASE LOG IN" alert (css)-->
-  <h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
-
-  <h3><!-- search label --></h3>
-
-  <div class="search-form-holder">
+    <div class="search-form-holder">
     <form class="search-form" id="" action="/searchUser" method="POST">
-      <label for="">Search By User Name</label>
+      <label for="">By User Name </label>
       <input class="new-search" placeholder="query" type="text" name="userName" />
       <button type="submit" class="fa fa-plus-circle fa-3x"></button>
     </form>
   </div>
+
 </aside>
+
+</div>
 
 <div class="">
 
