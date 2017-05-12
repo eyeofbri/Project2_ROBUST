@@ -14,14 +14,13 @@
 		<div class="">  //To get the last 10 tasks from the DB
 			<a href="/getTask"></a>
 			<h2>Tasks Recently added</h2>
-			{{#each dbTask}}
-			
-				{{this.task}}
-				{{this.description}}
-				{{this.complete}}
-				{{this.assigned_to}}
-				{{this.date_due}}
 
+			{{#each dbTask}}
+				{{this.task}}
+				{{this.assigned_to}}
+				{{this.complete}}
+			  {{this.date_due}}
 			{{/each}}
+
 		</div>
 </div>

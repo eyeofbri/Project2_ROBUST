@@ -12,9 +12,43 @@
   <h3><!-- search label --></h3>
 
   <div class="search-form-holder">
-    <form class="search-form" id="">
-      <input class="new-search" placeholder="query" type="text" />
+    <form class="search-form" id="" action="/searchTask" method="POST">
+      <label for="">Search By Task Name</label>
+      <input class="new-search" placeholder="query" type="text" name="taskName" />
       <button type="submit" class="fa fa-plus-circle fa-3x"></button>
     </form>
   </div>
 </aside>
+
+<aside class="search-holder">
+
+  <button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
+
+
+  <h1><!-- title (css)--></h1>
+
+  <!-- "PLEASE LOG IN" alert (css)-->
+  <h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
+
+  <h3><!-- search label --></h3>
+
+  <div class="search-form-holder">
+    <form class="search-form" id="" action="/searchUser" method="POST">
+      <label for="">Search By User Name</label>
+      <input class="new-search" placeholder="query" type="text" name="userName" />
+      <button type="submit" class="fa fa-plus-circle fa-3x"></button>
+    </form>
+  </div>
+</aside>
+
+<div class="">
+
+  {{#each dbTask}}
+    {{this.task}}
+    {{this.assigned_to}}
+    {{this.complete}}
+    {{this.date_due}}
+  {{/each}}
+
+
+</div>
