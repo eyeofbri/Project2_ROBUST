@@ -1793,21 +1793,41 @@ ul.pageNav li.right {float: right;}
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    font-size: 18px;
+    font-size: 25px;
     font-family: sans-serif;
 	color: rgba(0,0,0,0.5);
 	padding-bottom: 80px;
-	padding-top: 50px;
+	padding-top: 100px;
 	border-top: 1px solid rgba(0,0,0,0.4);
 }
+
 .guru-visual-holder{
-	width: 300px;
-	height: 300px;
+	width: 500px;
+	height: 500px;
 	display: flex;
 	flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 160px;
+    margin-top: 100px;
+    background-color: #fff;
+    border-radius: 100%;
+    position: relative;
+}
+.guru-visual-holder:before{
+    content:'';
+    width:500px;
+    height:500px;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0.1;
+    -webkit-animation: glowing 31.4s linear infinite;
+    -moz-animation: glowing 31.4s linear infinite;
+    -ms-animation: glowing 31.4s linear infinite;
+    -o-animation: glowing 31.4s linear infinite;
+    animation: glowing 31.4s linear infinite;
+    border-radius: 100%;
+    box-shadow:inset 0 0 100px 50px #fff;
 }
 .guru{
 	width: 200px;
@@ -1837,7 +1857,7 @@ ul.pageNav li.right {float: right;}
 .guru-shadow{
 	width: 150px;
 	height: 20px;
-	background-color: #ccc;
+	background-color: rgba(0,0,0,0.15);
 	border-radius: 100%;
 	animation: guru-shadow-animate 3s ease-in-out infinite;
 	position: relative;
@@ -1856,8 +1876,9 @@ ul.pageNav li.right {float: right;}
 }
 .splash-guru span{
 	margin-top: 40px;
-	font-size: xx-large;
-	color: rgba(0,0,0,0.8);
+ 	font-size: 35px;
+ 	font-weight: bolder;
+ 	color: rgba(0,0,0,0.8);
 }
 
 .guru-rotator{
@@ -1899,6 +1920,11 @@ ul.pageNav li.right {float: right;}
     top: 50%; left: 50%;
     width: 4em; height: 4em;
     margin: -2em; /* 2em = 4em/2 */ /* half the width */
+    -webkit-animation: glow-text 31.4s linear infinite;
+    -moz-animation: glow-text 31.4s linear infinite;
+    -ms-animation: glow-text 31.4s linear infinite;
+    -o-animation: glow-text 31.4s linear infinite;
+    animation: glow-text 31.4s linear infinite;
 }
 .guru-tasks-holder img { 
 	display: block; 
@@ -2002,42 +2028,69 @@ ul.pageNav li.right {float: right;}
     transition: .7s; /* only works in Firefox */
     content: attr(class)'°';
 }
-/*.guru-tasks-holder a:hover:before { opacity: 1; }*/
 
-/* this is for showing the circle on which the images are placed */
-/*.guru-tasks-holder:after {
-    position: absolute;
-    top: 2.8em; left: 2.8em;
-    width: 24em; height: 24em;
-    border: dashed 1px deeppink;
-    border-radius: 50%;
-    opacity: .3;
-    pointer-events: none;
-    content: '';
-}*/
-/*.guru-tasks-holder:hover:after { opacity: 1; }
-.guru-tasks-holder a:not(.center):after {
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    box-shadow: 0 0 .5em .5em white;
-    margin: -2px;
-    background: deeppink;
-    opacity: .3;
-    content: '';
+
+footer{
+	padding-top: 140px;
+	background-color: #333;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.guru-tasks-holder:hover a:after { opacity: 1; }
-.guru-tasks-holder a:hover:after { opacity: .3; }*/
+footer p{
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: lighter;
+	-webkit-animation: glow-text 31.4s linear infinite;
+    -moz-animation: glow-text 31.4s linear infinite;
+    -ms-animation: glow-text 31.4s linear infinite;
+    -o-animation: glow-text 31.4s linear infinite;
+    animation: glow-text 31.4s linear infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: -1px -1px 10px #000;
+}
 
+footer a{
+	color: #ccc !important;
+	font-size: medium;
+	text-transform: uppercase;
+}
+footer a:hover{
+	background-color: transparent !important;
+	color: #fff !important;
+}
+.icons {
+	display: flex;
+	flex-direction: row;
+}
+.icons a{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	width: 50px;
+	height: 50px;
+	opacity: 0.8;
+	padding-bottom: 40px;
+}
+.icons a:nth-of-type(1){
+	background-image: url("../images/logo_small-white.png");
+	margin-right: 20px;
+}
+.icons a:nth-of-type(2){
+	background-image: url("../images/github.png");
+	margin-right: 20px;
+}
+.icons a:nth-of-type(3){
+	background-image: url("../images/RU_icon.png");
 
-
-
-
-
-
+}
+.icons a:hover{
+	opacity: 1;
+}
 .splash-flag{
-	background-color: #fff;
+	background-color: #ccc;
 	border-top: 1px solid rgba(0,0,0,0.1);
 	height: 300px;
 }
@@ -2075,4 +2128,41 @@ ul.pageNav li.right {float: right;}
    .splash-guru{
    		text-align: center;
    }
+
+   footer p{
+	font-size: larger;
+   }
 }
+
+
+.greeting-holder h2{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align:center;
+	text-transform: capitalize;
+	font-size: xx-large;
+}
+
+
+
+
+
+
+@keyframes glow-text {
+    0%{ color: rgb(202, 28, 28); }
+    10%{ color: rgb(202, 202, 28); }
+    20%{ color:  rgb(71, 202, 28); }
+    30%{ color:  rgb(28, 202, 71); }
+    40%{ color: rgb(28, 202, 158); }
+    50%{ color:  rgb(28, 202, 202); }
+    60%{ color: rgb(28, 71, 202)); }
+    70%{ color: rgb(71, 28, 202); }
+    80%{ color:  rgb(158, 28, 202); }
+    90%{ color: rgb(202, 28, 158); }
+    100%{ color: rgb(202, 28, 28); }
+}
+
+
+
+
+
