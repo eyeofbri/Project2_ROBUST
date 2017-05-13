@@ -1,13 +1,11 @@
 <div class="splash-holder">
-	<ul class="pageNav">
-		<li><a class="active" href="#home"></a></li>
-		<li class="right"><a href="/logout">Logout</a></li>
-		<li class="right"><a href="/dashboard">Dashboard</a></li>
-		<li class="right"><a href="/search">Search</a></li>
-		<li class="right"><a href="/addTask">New Task</a></li>
-	</ul>
-</div>
-
+		<ul class="pageNav">
+			<li><a class="active" href="#home"></a></li>
+			<li class="right"><a href="/logout">Logout</a></li>
+      <li class="right"><a href="/dashboard/{{this.userName}}">Dashboard</a></li>
+		  <li class="right"><a href="/search">Search</a></li>
+		  <li class="right"><a href="/addTask/{{this.userName}}">NewTask</a></li>
+		</ul>
 <div class="modules-loggedIn">
 	<aside class="greeting-holder">
 		<h2>
