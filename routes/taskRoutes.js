@@ -24,6 +24,7 @@ module.exports = function(app){
         category:req.body.taskCategory,
         date_created:new Date(),
         date_due:req.body.dueDate,
+        drawing_Image:req.body.drawing,
         drawing_URL:req.body.imageURL
       }).then(function(dbTask){
 	      // console.log(dbTask);
