@@ -15,15 +15,16 @@
 </head>
 <body>
 
-	<nav>
-		<ul class="topnav">
-			<li><a class="logo" href="#home"></a></li>
-			<li><a href="#settings">SETTINGS</a></li>
-			<li><a href="#search">SEARCH</a></li>
-			<li><a href="#sort">SORT</a></li>
-			<li><a href="#newtask">NEW TASK</a></li>
-		</ul>
-	</nav>
+<div class="splash-holder">
+  <ul class="pageNav">
+    <li><a class="active" href="#home"></a></li>
+    <li class="right"><a href="/logout">LogOut</a></li>
+    <li class="right"><a href="/dashboard/{{this.userName}}">Dashboard</a></li>
+    <li class="right"><a href="/search">Search</a></li>
+    <li class="right"><a href="/addTask/{{this.userName}}">NewTask</a></li>
+  </ul>
+</div>
+
 
 	<div class="modules-loggedIn">
 
@@ -151,7 +152,7 @@
 
 		<!-- NEW TASK CREATOR-->
 
-		<aside class="newTask-holder">
+		<aside class="newTask-holder hide">
 
 			<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
 
@@ -310,7 +311,7 @@
 							<!-- this is the drawing grow shrink toggle -->
 							<button class="drawBtn-closed" onclick="UI_Btn(this,'draw')">
 								<!-- the actual drawing -->
-								<img class="drawingImg" src="testDrawing.jpg">
+								<img class="drawingImg" src="./images/testDrawing.jpg">
 							</button>
 						</div>
 					</div>
@@ -340,13 +341,13 @@
 			<div class="task-rightSide-closed">
 				<div class="comments-SectionContainer">
 
-					<button class="comments-toggle-btn-OUTER" data-commentNumber="7" onclick="UI_Btn(this,'outer')">
+					<button class="comments-toggle-btn-OUTER" data-commentNumber="0" onclick="UI_Btn(this,'outer')">
 						<span class="fa fa-comment fa-2x" aria-hidden="true"></span>
 					</button>
 
 					<div class="comments-holder">
 						<button class="comments-toggle-btn-INNER fa fa-comment fa-1x"
-						data-commentNumber="7" onclick="UI_Btn(this,'inner')"></button>
+						data-commentNumber="0" onclick="UI_Btn(this,'inner')"></button>
 
 						<div class="comments-list">
 							<ol>
@@ -393,14 +394,14 @@
 				<div class="task-main">
 					<div class="completeBtn-holder">
 						<!-- this is: task complete button -->
-						<button class="completeBtn">
+						<button class="completeBtn completed">
 							<span class="fa fa-check fa-2x" aria-hidden="true"></span>
 						</button>
 					</div>
 
 					<div class="taskText-holder">
 						<!-- this is: the main taskt text display -->
-						<div class="taskText">Finish the CSS scaffolding for individual tasks and then go back through the code and refine it.</div>
+						<div class="taskText">Drop the kids off at the pool.</div>
 					</div>
 				</div>
 
@@ -416,11 +417,11 @@
 					<button class="detailsToggle-btn" onclick="UI_Btn(this)"></button>
 
 					<div class="category-holder">
-						Schoolwork
+						Home
 					</div>
 
 					<div class="task-description">
-						Don't forget to use CSS semantics and kebab-style writing.
+						Don't forget to wear trunks.
 					</div>
 
 					<div class="task-link-holder">
@@ -433,7 +434,7 @@
 							<!-- this is the drawing grow shrink toggle -->
 							<button class="drawBtn-closed" onclick="UI_Btn(this,'draw')">
 								<!-- the actual drawing -->
-								<img class="drawingImg" src="testDrawing.jpg">
+								<img class="drawingImg" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Spongebob-squarepants.svg/666px-Spongebob-squarepants.svg.png">
 							</button>
 						</div>
 					</div>
@@ -523,14 +524,14 @@
 
 					<div class="taskText-holder">
 						<!-- this is: the main taskt text display -->
-						<div class="taskText">Finish the CSS scaffolding for individual tasks and then go back through the code and refine it.</div>
+						<div class="taskText">Fix the route erros for the add task databse. Then Upload to Git Branch.</div>
 					</div>
 				</div>
 
 
 				<div class="assignedTo-CreatedBy">
 					<div class="assignedTo">Brian</div>
-					<div class="createdBy">Group Admin</div>
+					<div class="createdBy">Aparna</div>
 				</div>
 
 
@@ -556,7 +557,7 @@
 							<!-- this is the drawing grow shrink toggle -->
 							<button class="drawBtn-closed" onclick="UI_Btn(this,'draw')">
 								<!-- the actual drawing -->
-								<img class="drawingImg" src="testDrawing.jpg">
+								<img class="drawingImg" src="./images/errors.png">
 							</button>
 						</div>
 					</div>
@@ -567,16 +568,16 @@
 
 				<div class="dates-holder">
 					<div class="date-listed">
-						<div class="date">02 MAY
+						<div class="date">09 MAY
 							<sub>17</sub>
 						</div>
-						<div class="time">10:39 PM</div>
+						<div class="time">9:00 PM</div>
 					</div>
 					<div class="date-due">
-						<div class="date">05 MAY
+						<div class="date">13 MAY
 							<sub>17</sub>
 						</div>
-						<div class="time">2:02 PM</div>
+						<div class="time">10:00 AM</div>
 					</div>
 				</div>
 
@@ -586,13 +587,13 @@
 			<div class="task-rightSide-closed">
 				<div class="comments-SectionContainer">
 
-					<button class="comments-toggle-btn-OUTER" data-commentNumber="7" onclick="UI_Btn(this,'outer')">
+					<button class="comments-toggle-btn-OUTER" data-commentNumber="1" onclick="UI_Btn(this,'outer')">
 						<span class="fa fa-comment fa-2x" aria-hidden="true"></span>
 					</button>
 
 					<div class="comments-holder">
 						<button class="comments-toggle-btn-INNER fa fa-comment fa-1x"
-						data-commentNumber="7" onclick="UI_Btn(this,'inner')"></button>
+						data-commentNumber="1" onclick="UI_Btn(this,'inner')"></button>
 
 						<div class="comments-list">
 							<ol>
@@ -634,6 +635,21 @@
 	<!-- end of all tasks -->
 	</section>
 
+
+<footer>
+	<p>Tikit was made by Aparna and Brian for Rutgers Coding Bootcamp in 2017</p>
+	<div class="icons">
+		<a href="/"></a>
+		<a href="https://github.com/eyeofbri/Project2_Tic-It"></a>
+		<a href="https://bootcamp.rutgers.edu/"></a>
+	</div>
+	<ul class="splash">
+		<li class="right"><a href="/logout">LogOut</a></li>
+		<li class="right"><a href="/dashboard/{{this.userName}}">Dashboard</a></li>
+		<li class="right"><a href="/search">Search</a></li>
+		<li class="right"><a href="/addTask/{{this.userName}}">NewTask</a></li>
+	</ul>
+</footer>
 
 </body>
 </html>

@@ -315,6 +315,19 @@ function img_Btn(toggleName, el) {
 				img.attr('id', "uploaded-image");
 				img.appendTo('#imgUploaded-holder');
 
+
+				toDataURL(src, function(dataURL){
+
+					var blob = dataURItoBlob(dataURL);
+
+					$('#imgUploaded-url').val(blob);
+					console.log( $('#imgUploaded-url').val());
+
+				});
+
+
+				
+
 				//hide IMG imports
 				document.getElementById('imgImport').className = "imgImport-holder hide";
 
@@ -325,29 +338,6 @@ function img_Btn(toggleName, el) {
 				document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder hide";
 			}
 
-			//if local 
-			//DID NOT WORK
-
-
-			// var local = $( "#from-local" ).val().trim();
-			// if(local !=""){
-			// 	//feed image through a canvas to get a copy in out js
-			// 	var temp_canvas = $('<canvas>');
-			// 	var ctx = temp_canvas.get(0).getContext("2d");
-   //  			ctx.drawImage(img, 0, 0);
-
-   //  			var canvas = document.getElementById("drawing");
-			// 	var img    = canvas.toDataURL("image/png");
-
-			// 	$('#imgUploaded-holder').html("");
-			// 	$('#imgUploaded-holder').append('<img src="'+img+'"/>');
-
-			// 	// show uploaded image
-			// 	document.getElementById('imgUploaded-holder').className = "show";
-
-			// 	//hide upload button
-			// 	document.getElementById('uploadImg-btn-holder').className = "uploadImg-btn-holder hide";
-			// }
 
 		}
 
@@ -363,6 +353,10 @@ function img_Btn(toggleName, el) {
 
 			$('#imgUploaded-holder').html("");
 			$('#imgUploaded-holder').append('<img id="uploaded-image" src="'+img+'"/>');
+
+			$('#imgUploaded-url').val(dataURItoBlob(img));
+
+			console.log( $('#imgUploaded-url').val());
 
 			
 			//hide canvas
@@ -468,3 +462,42 @@ function submitTask(el) {
 	//send to route for new task right here
 }
 
+
+function dataURItoBlob(dataURI) {
+  // convert base64 to raw binary data held in a string
+  // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+  var byteString = atob(dataURI.split(',')[1]);
+
+  // separate out the mime component
+  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+
+  // write the bytes of the string to an ArrayBuffer
+  var ab = new ArrayBuffer(byteString.length);
+  var ia = new Uint8Array(ab);
+  for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+  }
+
+  // write the ArrayBuffer to a blob, and you're done
+  var blob = new Blob([ab], {type: mimeString});
+  return blob;
+
+  // Old code
+  // var bb = new BlobBuilder();
+  // bb.append(ab);
+  // return bb.getBlob(mimeString);
+}
+
+function toDataURL(url, callback){
+var xhr = new XMLHttpRequest();
+xhr.open('get', url);
+xhr.responseType = 'blob';
+xhr.onload = function(){
+  var fr = new FileReader();
+  fr.onload = function(){
+    callback(this.result);
+    };
+  fr.readAsDataURL(xhr.response);
+  };
+xhr.send();
+}

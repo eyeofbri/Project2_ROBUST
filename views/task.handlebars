@@ -62,7 +62,7 @@
             <div class="imgImport-holder hide" id="imgImport">
 
               <h6></h6>
-              <input id="from-url" class="image-url" placeholder="url" type="text" name="imageURL"/>
+              <input id="from-url" class="image-url" placeholder="url" type="text" name=""/>
 
               <!-- <h6></h6>
               <input id="from-local" type="file" name="taskPic" accept="image/*"> -->
@@ -84,10 +84,11 @@
             <!-- uploaded images go here -->
             <div id="imgUploaded-holder" class="imgUploaded-holder hide"></div>
           </div>
+          <input id="imgUploaded-url" class="hide" type="text" name="drawing"/>
 
           <!-- due date input -->
           <h3></h3>
-          <input class="taskText" class="due" type="date" name="dueDate"/>
+          <input class="taskText" class="due" type="date" name="dueDate" required/>
 
 
           <h2><!-- title (css)--></h2>
