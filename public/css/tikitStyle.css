@@ -2136,16 +2136,24 @@ footer a:hover{
 
 
 .greeting-holder h2{
+	background-color: transparent;
+	color: #fff;
+	border: 0px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align:center;
 	text-transform: capitalize;
 	font-size: xx-large;
 }
-
-
-
-
+.greeting-holder{
+	border:0px !important;
+}
+.home{
+	color: rgba(255,255,255,0.6);
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: lighter;
+}
 
 
 @keyframes glow-text {
